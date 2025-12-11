@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AprobaYa - Prepárate para tus Certificaciones",
     description: "La forma más cute y efectiva de aprobar tus certificaciones",
-    url: "https://aprobaya.vercel.app",
+    url: "https://aprobaya.academy",
     siteName: "AprobaYa",
     locale: "es_ES",
     type: "website",

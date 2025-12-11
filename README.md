@@ -12,7 +12,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-[Demo en vivo](https://aprobaya.vercel.app) · [Reportar Bug](https://github.com/sespinosav/aprobaya/issues) · [Solicitar Feature](https://github.com/sespinosav/aprobaya/issues)
+[Demo en vivo](https://aprobaya.academy) · [Reportar Bug](https://github.com/sespinosav/aprobaya/issues) · [Solicitar Feature](https://github.com/sespinosav/aprobaya/issues)
 
 </div>
 
