@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { use } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import {
   ArrowLeft,
   Clock,
@@ -30,30 +32,37 @@ interface ArticlePageProps {
 }
 
 const domainColors: Record<string, { bg: string; text: string; border: string; accent: string }> = {
-  domain1: {
+  "domain-1": {
     bg: "bg-blue-50 dark:bg-blue-900/20",
     text: "text-blue-700 dark:text-blue-300",
     border: "border-blue-200 dark:border-blue-800",
     accent: "blue",
   },
-  domain2: {
+  "domain-2": {
     bg: "bg-rose-50 dark:bg-rose-900/20",
     text: "text-rose-700 dark:text-rose-300",
     border: "border-rose-200 dark:border-rose-800",
     accent: "rose",
   },
-  domain3: {
+  "domain-3": {
     bg: "bg-emerald-50 dark:bg-emerald-900/20",
     text: "text-emerald-700 dark:text-emerald-300",
     border: "border-emerald-200 dark:border-emerald-800",
     accent: "emerald",
   },
-  domain4: {
+  "domain-4": {
     bg: "bg-amber-50 dark:bg-amber-900/20",
     text: "text-amber-700 dark:text-amber-300",
     border: "border-amber-200 dark:border-amber-800",
     accent: "amber",
   },
+};
+
+const defaultColors = {
+  bg: "bg-gray-50 dark:bg-gray-900/20",
+  text: "text-gray-700 dark:text-gray-300",
+  border: "border-gray-200 dark:border-gray-800",
+  accent: "gray",
 };
 
 export default function ArticlePage({ params }: ArticlePageProps) {
@@ -70,7 +79,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
   }
 
   const domain = allDomains.find((d) => d.id === article.domainId);
-  const colors = domainColors[article.domainId];
+  const colors = domainColors[article.domainId] || defaultColors;
 
   // Get related articles (same domain, different article)
   const relatedArticles = allArticles
@@ -325,164 +334,114 @@ export default function ArticlePage({ params }: ArticlePageProps) {
   );
 }
 
-// Component to render markdown-like content
+// Component to render markdown content
 function ArticleContent({ content }: { content: string }) {
-  // Simple parsing for tables, code blocks, and text formatting
-  const lines = content.split("\n");
-  const elements: React.ReactNode[] = [];
-  let inTable = false;
-  let tableRows: string[][] = [];
-  let inCodeBlock = false;
-  let codeLines: string[] = [];
-
-  const processLine = (line: string, index: number) => {
-    // Check for code block
-    if (line.trim().startsWith("```")) {
-      if (inCodeBlock) {
-        elements.push(
-          <div key={`code-${index}`} className="my-4 rounded-lg bg-gray-900 dark:bg-gray-950 p-4 overflow-x-auto">
-            <pre className="text-sm text-gray-100 font-mono whitespace-pre">
-              {codeLines.join("\n")}
-            </pre>
+  return (
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      components={{
+        h1: ({ children }) => (
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+            {children}
+          </h1>
+        ),
+        h2: ({ children }) => (
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+            {children}
+          </h2>
+        ),
+        h3: ({ children }) => (
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-6 mb-3">
+            {children}
+          </h3>
+        ),
+        p: ({ children }) => (
+          <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+            {children}
+          </p>
+        ),
+        ul: ({ children }) => (
+          <ul className="list-disc ml-6 space-y-2 mb-4 text-gray-700 dark:text-gray-300">
+            {children}
+          </ul>
+        ),
+        ol: ({ children }) => (
+          <ol className="list-decimal ml-6 space-y-2 mb-4 text-gray-700 dark:text-gray-300">
+            {children}
+          </ol>
+        ),
+        li: ({ children }) => (
+          <li className="text-gray-700 dark:text-gray-300">{children}</li>
+        ),
+        strong: ({ children }) => (
+          <strong className="font-semibold text-gray-900 dark:text-white">
+            {children}
+          </strong>
+        ),
+        em: ({ children }) => (
+          <em className="italic">{children}</em>
+        ),
+        code: ({ children, className }) => {
+          const isInline = !className;
+          if (isInline) {
+            return (
+              <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono text-indigo-600 dark:text-indigo-400">
+                {children}
+              </code>
+            );
+          }
+          return (
+            <code className="text-sm text-gray-100 font-mono">
+              {children}
+            </code>
+          );
+        },
+        pre: ({ children }) => (
+          <div className="my-4 rounded-lg bg-gray-900 dark:bg-gray-950 p-4 overflow-x-auto">
+            <pre className="whitespace-pre">{children}</pre>
           </div>
-        );
-        codeLines = [];
-        inCodeBlock = false;
-      } else {
-        inCodeBlock = true;
-      }
-      return;
-    }
-
-    if (inCodeBlock) {
-      codeLines.push(line);
-      return;
-    }
-
-    // Check for table row
-    if (line.includes("|") && !line.trim().startsWith("```")) {
-      if (!inTable) inTable = true;
-      const cells = line
-        .split("|")
-        .map((cell) => cell.trim())
-        .filter((cell) => cell && !cell.match(/^[-:]+$/));
-      if (cells.length > 0 && !line.match(/^\|?[\s-:|]+\|?$/)) {
-        tableRows.push(cells);
-      }
-      return;
-    } else if (inTable) {
-      // End of table
-      if (tableRows.length > 0) {
-        elements.push(
-          <div key={`table-${index}`} className="my-4 overflow-x-auto">
+        ),
+        table: ({ children }) => (
+          <div className="my-4 overflow-x-auto">
             <table className="min-w-full text-sm border-collapse">
-              <thead>
-                <tr className="bg-gray-100 dark:bg-gray-800">
-                  {tableRows[0].map((cell, i) => (
-                    <th
-                      key={i}
-                      className="border border-gray-300 dark:border-gray-600 px-3 py-2 text-left font-semibold"
-                    >
-                      {cell}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {tableRows.slice(1).map((row, rowIndex) => (
-                  <tr key={rowIndex} className="hover:bg-gray-50 dark:hover:bg-gray-800/50">
-                    {row.map((cell, cellIndex) => (
-                      <td
-                        key={cellIndex}
-                        className="border border-gray-300 dark:border-gray-600 px-3 py-2"
-                      >
-                        {formatText(cell)}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
+              {children}
             </table>
           </div>
-        );
-      }
-      tableRows = [];
-      inTable = false;
-    }
-
-    // Regular line
-    if (line.trim()) {
-      elements.push(
-        <p key={`p-${index}`} className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
-          {formatText(line)}
-        </p>
-      );
-    }
-  };
-
-  lines.forEach(processLine);
-
-  // Handle any remaining table or code block
-  if (inTable && tableRows.length > 0) {
-    elements.push(
-      <div key="table-final" className="my-4 overflow-x-auto">
-        <table className="min-w-full text-sm border-collapse">
-          <thead>
-            <tr className="bg-gray-100 dark:bg-gray-800">
-              {tableRows[0].map((cell, i) => (
-                <th
-                  key={i}
-                  className="border border-gray-300 dark:border-gray-600 px-3 py-2 text-left font-semibold"
-                >
-                  {cell}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {tableRows.slice(1).map((row, rowIndex) => (
-              <tr key={rowIndex} className="hover:bg-gray-50 dark:hover:bg-gray-800/50">
-                {row.map((cell, cellIndex) => (
-                  <td
-                    key={cellIndex}
-                    className="border border-gray-300 dark:border-gray-600 px-3 py-2"
-                  >
-                    {formatText(cell)}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    );
-  }
-
-  if (inCodeBlock && codeLines.length > 0) {
-    elements.push(
-      <div key="code-final" className="my-4 rounded-lg bg-gray-900 dark:bg-gray-950 p-4 overflow-x-auto">
-        <pre className="text-sm text-gray-100 font-mono whitespace-pre">
-          {codeLines.join("\n")}
-        </pre>
-      </div>
-    );
-  }
-
-  return <>{elements}</>;
-}
-
-// Format inline text (bold, italic, etc.)
-function formatText(text: string): React.ReactNode {
-  // Handle **bold**
-  const parts = text.split(/(\*\*[^*]+\*\*)/g);
-  return parts.map((part, index) => {
-    if (part.startsWith("**") && part.endsWith("**")) {
-      return (
-        <strong key={index} className="font-semibold text-gray-900 dark:text-white">
-          {part.slice(2, -2)}
-        </strong>
-      );
-    }
-    return part;
-  });
+        ),
+        thead: ({ children }) => (
+          <thead className="bg-gray-100 dark:bg-gray-800">{children}</thead>
+        ),
+        th: ({ children }) => (
+          <th className="border border-gray-300 dark:border-gray-600 px-3 py-2 text-left font-semibold">
+            {children}
+          </th>
+        ),
+        td: ({ children }) => (
+          <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">
+            {children}
+          </td>
+        ),
+        tr: ({ children }) => (
+          <tr className="hover:bg-gray-50 dark:hover:bg-gray-800/50">{children}</tr>
+        ),
+        a: ({ href, children }) => (
+          <a
+            href={href}
+            className="text-indigo-600 dark:text-indigo-400 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {children}
+          </a>
+        ),
+        blockquote: ({ children }) => (
+          <blockquote className="border-l-4 border-indigo-500 pl-4 my-4 italic text-gray-600 dark:text-gray-400">
+            {children}
+          </blockquote>
+        ),
+      }}
+    >
+      {content}
+    </ReactMarkdown>
+  );
 }
