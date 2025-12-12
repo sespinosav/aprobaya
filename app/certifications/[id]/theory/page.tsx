@@ -84,14 +84,16 @@ export default function TheoryPage() {
           </div>
         </motion.div>
 
-        {/* Articles Banner */}
+        {/* Resource Banners */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
+          className="grid gap-4 md:grid-cols-2 mb-8"
         >
+          {/* Articles Banner */}
           <Link href={`/certifications/${id}/articles`}>
-            <Card className="bg-gradient-to-r from-indigo-500 to-purple-600 border-0 hover:from-indigo-600 hover:to-purple-700 transition-all cursor-pointer mb-8">
+            <Card className="h-full bg-gradient-to-r from-indigo-500 to-purple-600 border-0 hover:from-indigo-600 hover:to-purple-700 transition-all cursor-pointer">
               <CardContent className="py-5 flex items-center justify-between">
                 <div className="flex items-center gap-4 text-white">
                   <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
@@ -100,7 +102,27 @@ export default function TheoryPage() {
                   <div>
                     <h3 className="font-semibold text-lg">64 Artículos de Teoría</h3>
                     <p className="text-indigo-100 text-sm">
-                      Contenido completo para dominar todos los conceptos del examen
+                      Contenido completo para dominar los conceptos
+                    </p>
+                  </div>
+                </div>
+                <ChevronRight className="h-6 w-6 text-white" />
+              </CardContent>
+            </Card>
+          </Link>
+
+          {/* Services Banner */}
+          <Link href={`/certifications/${id}/services`}>
+            <Card className="h-full bg-gradient-to-r from-orange-500 to-amber-500 border-0 hover:from-orange-600 hover:to-amber-600 transition-all cursor-pointer">
+              <CardContent className="py-5 flex items-center justify-between">
+                <div className="flex items-center gap-4 text-white">
+                  <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center text-2xl">
+                    ☁️
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">Catálogo de Servicios</h3>
+                    <p className="text-orange-100 text-sm">
+                      Explora todos los servicios de AWS del examen
                     </p>
                   </div>
                 </div>

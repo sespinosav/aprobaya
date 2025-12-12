@@ -27,20 +27,28 @@ import { Progress } from "@/components/ui/progress";
 
 // Import data and storage
 import { awsCloudPractitionerInfo, allDomains, getQuestionStats } from "@/data/certifications/aws-clf-c02";
-import { getProgress, getStreak, getExamHistory } from "@/lib/storage";
-import { formatTime, getScoreColor, calculateScore } from "@/lib/utils";
+import { getStreak, getExamHistory, calculateAchievements, ACHIEVEMENTS } from "@/lib/storage";
+import { formatTime, getScoreColor } from "@/lib/utils";
 import { ExamResult } from "@/types";
 
-const achievements = [
-  { id: "first-exam", name: "Primer Paso", icon: "🎯", description: "Completa tu primer examen", requirement: "1 examen" },
-  { id: "five-exams", name: "En Camino", icon: "🚀", description: "Completa 5 exámenes", requirement: "5 exámenes" },
-  { id: "ten-exams", name: "Dedicado", icon: "💪", description: "Completa 10 exámenes", requirement: "10 exámenes" },
-  { id: "first-pass", name: "Victoria", icon: "🏆", description: "Aprueba un examen (700+)", requirement: "Score 700+" },
-  { id: "perfect-score", name: "Perfección", icon: "⭐", description: "Obtén 1000 puntos", requirement: "Score 1000" },
-  { id: "streak-3", name: "Consistente", icon: "🔥", description: "3 días de racha", requirement: "3 días" },
-  { id: "streak-7", name: "Imparable", icon: "⚡", description: "7 días de racha", requirement: "7 días" },
-  { id: "all-domains", name: "Explorador", icon: "🗺️", description: "Practica todos los dominios", requirement: "4 dominios" },
-];
+const achievements = ACHIEVEMENTS.map(a => ({
+  ...a,
+  requirement: getRequirementText(a.id),
+}));
+
+function getRequirementText(id: string): string {
+  const requirements: Record<string, string> = {
+    "first-exam": "1 examen",
+    "five-exams": "5 exámenes",
+    "ten-exams": "10 exámenes",
+    "first-pass": "Score 700+",
+    "perfect-score": "Score 1000",
+    "streak-3": "3 días",
+    "streak-7": "7 días",
+    "all-domains": "4 dominios",
+  };
+  return requirements[id] || "";
+}
 
 export default function ProgressPage() {
   const params = useParams();
@@ -56,11 +64,13 @@ export default function ProgressPage() {
     // Load data from localStorage
     const history = getExamHistory(id);
     const streakData = getStreak();
-    const progress = getProgress();
     
     setExamHistory(history);
     setStreak(streakData);
-    setUnlockedAchievements(progress?.achievements || []);
+    
+    // Calculate achievements from storage (also updates storage if needed)
+    const { all } = calculateAchievements(id);
+    setUnlockedAchievements(all);
   }, [id]);
 
   // Calculate stats

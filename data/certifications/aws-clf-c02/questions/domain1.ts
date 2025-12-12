@@ -707,6 +707,320 @@ export const domain1Questions: Question[] = [
     },
     tags: ["well-architected", "microservicios", "acoplamiento-debil"],
   },
+  {
+    id: "clf-125",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-1",
+    type: "multiple",
+    difficulty: "medium",
+    question:
+      "Una empresa minorista está migrando su infraestructura de TI desde un centro de datos local a la nube de AWS. ¿Qué costos eliminará la empresa con esta migración? (Seleccione DOS)",
+    options: [
+      { id: "a", text: "Costo de operaciones del centro de datos" },
+      { id: "b", text: "Costo de licencias de aplicaciones" },
+      { id: "c", text: "Costo de campañas de marketing" },
+      { id: "d", text: "Costo de hardware de servidores físicos" },
+      { id: "e", text: "Costo de gestión de red" },
+    ],
+    correctAnswers: ["a", "d"],
+    explanation: {
+      correct:
+        "Al migrar a la nube de AWS, la empresa elimina los costos de operaciones del centro de datos (energía, refrigeración, espacio físico, personal) y el costo de hardware de servidores físicos (compra, mantenimiento, reemplazo).",
+      whyOthersWrong: {
+        b: "Las licencias de aplicaciones generalmente siguen siendo responsabilidad del cliente, aunque pueden cambiar a modelos SaaS.",
+        c: "Los costos de marketing no están relacionados con la migración a la nube.",
+        e: "La gestión de red sigue siendo necesaria en la nube, aunque cambia su naturaleza.",
+      },
+    },
+    tags: ["migracion", "costos", "capex-opex", "beneficios-nube"],
+  },
+  {
+    id: "clf-126",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-1",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué herramienta o servicio de AWS proporciona recomendaciones para ayudar a los usuarios a obtener instancias de Amazon EC2 del tamaño correcto según los datos de uso histórico de la carga de trabajo?",
+    options: [
+      { id: "a", text: "Calculadora de precios de AWS" },
+      { id: "b", text: "AWS Compute Optimizer" },
+      { id: "c", text: "AWS App Runner" },
+      { id: "d", text: "AWS Systems Manager" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "AWS Compute Optimizer analiza las métricas de utilización de tus recursos y proporciona recomendaciones para obtener instancias EC2 del tamaño correcto, optimizando costos y rendimiento basándose en datos históricos.",
+      whyOthersWrong: {
+        a: "La Calculadora de precios estima costos de arquitecturas futuras, no analiza uso histórico ni da recomendaciones de dimensionamiento.",
+        c: "AWS App Runner es para desplegar aplicaciones web y APIs, no para optimización de instancias.",
+        d: "Systems Manager gestiona infraestructura pero no proporciona recomendaciones de dimensionamiento basadas en ML.",
+      },
+    },
+    tags: ["compute-optimizer", "dimensionamiento", "optimizacion-costos"],
+  },
+  {
+    id: "clf-127",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-1",
+    type: "multiple",
+    difficulty: "medium",
+    question:
+      "¿Qué principios de diseño respaldan el pilar de confiabilidad del AWS Well-Architected Framework? (Seleccione DOS)",
+    options: [
+      { id: "a", text: "Realizar operaciones como código" },
+      { id: "b", text: "Habilitar trazabilidad" },
+      { id: "c", text: "Escalar automáticamente para satisfacer la demanda" },
+      { id: "d", text: "Implementar recursos globalmente para mejorar el tiempo de respuesta" },
+      { id: "e", text: "Recuperarse automáticamente de fallas" },
+    ],
+    correctAnswers: ["c", "e"],
+    explanation: {
+      correct:
+        "El pilar de confiabilidad incluye: escalar automáticamente para satisfacer la demanda (evitar sobrecargas) y recuperarse automáticamente de fallas (auto-healing). Estos principios aseguran que los sistemas manejen cambios y se recuperen de interrupciones.",
+      whyOthersWrong: {
+        a: "Realizar operaciones como código pertenece al pilar de Excelencia operativa.",
+        b: "Habilitar trazabilidad pertenece al pilar de Seguridad.",
+        d: "Implementar globalmente pertenece al pilar de Eficiencia de rendimiento.",
+      },
+    },
+    tags: ["well-architected", "confiabilidad", "principios-diseno"],
+  },
+  {
+    id: "clf-128",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-1",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué pilar del AWS Well-Architected Framework incluye un principio de diseño sobre medir la eficiencia general de las cargas de trabajo en términos de valor empresarial?",
+    options: [
+      { id: "a", text: "Excelencia operativa" },
+      { id: "b", text: "Seguridad" },
+      { id: "c", text: "Confiabilidad" },
+      { id: "d", text: "Optimización de costos" },
+    ],
+    correctAnswers: ["d"],
+    explanation: {
+      correct:
+        "El pilar de Optimización de costos incluye medir la eficiencia general en términos de valor empresarial entregado. Este pilar se enfoca en comprender el gasto, seleccionar los recursos más apropiados y escalar para satisfacer las necesidades del negocio al menor costo.",
+      whyOthersWrong: {
+        a: "El pilar de Excelencia operativa se enfoca en ejecutar y monitorear sistemas para entregar valor de negocio, pero no específicamente en medir eficiencia en términos de valor empresarial.",
+        b: "El pilar de Seguridad se enfoca en proteger datos, sistemas y activos.",
+        c: "El pilar de Confiabilidad se enfoca en recuperación de fallas y satisfacer demanda.",
+      },
+    },
+    tags: ["well-architected", "optimizacion-costos", "eficiencia"],
+  },
+  {
+    id: "clf-129",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-1",
+    type: "single",
+    difficulty: "easy",
+    question:
+      "Una empresa quiere que sus instancias de Amazon EC2 operen en un entorno altamente disponible, incluso en caso de un desastre natural en un área geográfica específica. ¿Qué solución logra este objetivo?",
+    options: [
+      { id: "a", text: "Usar instancias EC2 en una sola zona de disponibilidad" },
+      { id: "b", text: "Usar instancias EC2 en múltiples regiones de AWS" },
+      { id: "c", text: "Usar instancias EC2 en múltiples ubicaciones de borde" },
+      { id: "d", text: "Usar Amazon CloudFront con las instancias EC2 configuradas como origen" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "Usar instancias EC2 en múltiples regiones de AWS proporciona protección contra desastres naturales que afecten un área geográfica específica, ya que las regiones están ubicadas en diferentes partes del mundo.",
+      whyOthersWrong: {
+        a: "Una sola AZ no protege contra desastres que afecten toda la región.",
+        c: "Las ubicaciones de borde son para caché de contenido (CloudFront), no para ejecutar instancias EC2.",
+        d: "CloudFront es una CDN para caché, no proporciona alta disponibilidad para EC2.",
+      },
+    },
+    tags: ["alta-disponibilidad", "multi-region", "disaster-recovery"],
+  },
+  {
+    id: "clf-130",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-1",
+    type: "single",
+    difficulty: "easy",
+    question:
+      "¿Cuál de las siguientes describe una región de AWS?",
+    options: [
+      { id: "a", text: "Una ubicación geográfica independiente que contiene múltiples zonas de disponibilidad aisladas físicamente" },
+      { id: "b", text: "Una colección de centros de datos que abarcan múltiples países" },
+      { id: "c", text: "Una vista global del entorno de computación en la nube de un usuario" },
+      { id: "d", text: "Una colección de bases de datos a las que solo se puede acceder desde un área geográfica específica" },
+    ],
+    correctAnswers: ["a"],
+    explanation: {
+      correct:
+        "Una región de AWS es una ubicación geográfica independiente que contiene múltiples zonas de disponibilidad (AZs) aisladas físicamente entre sí. Cada región opera de forma independiente y permite a los usuarios elegir dónde ejecutar sus aplicaciones y almacenar datos.",
+      whyOthersWrong: {
+        b: "Una región no abarca múltiples países; está contenida en un área geográfica específica.",
+        c: "Esto describe más bien la consola de AWS o el concepto de infraestructura global, no una región.",
+        d: "Las regiones no son colecciones de bases de datos; son infraestructura de computación en la nube.",
+      },
+    },
+    tags: ["regiones", "infraestructura", "geografia"],
+  },
+  {
+    id: "clf-131",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-1",
+    type: "single",
+    difficulty: "easy",
+    question:
+      "¿Cuál de los siguientes es una propuesta de valor de AWS que describe la capacidad de un usuario de escalar la infraestructura según la demanda?",
+    options: [
+      { id: "a", text: "Velocidad de innovación" },
+      { id: "b", text: "Elasticidad de recursos" },
+      { id: "c", text: "Arquitectura desacoplada" },
+      { id: "d", text: "Implementación global" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "La elasticidad de recursos permite aprovisionar o desaprovisionar recursos de forma rápida según la demanda, sin compromisos iniciales. Esto optimiza costos y rendimiento, permitiendo responder a necesidades comerciales cambiantes.",
+      whyOthersWrong: {
+        a: "La velocidad de innovación se refiere a la rapidez para desarrollar y lanzar nuevos productos.",
+        c: "La arquitectura desacoplada es un patrón de diseño, no una propuesta de valor de escalado.",
+        d: "La implementación global se refiere a la presencia mundial de AWS, no al escalado.",
+      },
+    },
+    tags: ["elasticidad", "propuesta-valor", "escalado"],
+  },
+  {
+    id: "clf-132",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-1",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa está ejecutando aplicaciones en instancias de Amazon EC2 en la misma cuenta de AWS para varios proyectos diferentes. La empresa quiere rastrear los costos de infraestructura para cada proyecto por separado con el menor impacto y sin costo adicional. ¿Qué debe hacer la empresa?",
+    options: [
+      { id: "a", text: "Usar un tipo de instancia EC2 diferente para cada proyecto" },
+      { id: "b", text: "Publicar métricas personalizadas de CloudWatch específicas del proyecto" },
+      { id: "c", text: "Implementar instancias EC2 para cada proyecto en una cuenta de AWS separada" },
+      { id: "d", text: "Usar etiquetas de asignación de costos con valores específicos para cada proyecto" },
+    ],
+    correctAnswers: ["d"],
+    explanation: {
+      correct:
+        "Las etiquetas de asignación de costos permiten categorizar y agrupar recursos AWS para fines de facturación. Se pueden adjuntar a recursos como instancias EC2 sin costo adicional y sin impactar la infraestructura existente.",
+      whyOthersWrong: {
+        a: "Usar diferentes tipos de instancia no ayuda a rastrear costos por proyecto y puede afectar el rendimiento.",
+        b: "Las métricas personalizadas de CloudWatch incurren en costos adicionales y no rastrean costos directamente.",
+        c: "Múltiples cuentas impactan la infraestructura y pueden incurrir en costos adicionales de administración.",
+      },
+    },
+    tags: ["etiquetas", "cost-allocation", "organizacion", "facturacion"],
+  },
+  {
+    id: "clf-133",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-1",
+    type: "single",
+    difficulty: "easy",
+    question:
+      "¿Qué característica o recurso de AWS es una plantilla de instancia de Amazon EC2 implementable que está preempaquetada con software y requisitos de seguridad?",
+    options: [
+      { id: "a", text: "Volumen de Amazon Elastic Block Store (Amazon EBS)" },
+      { id: "b", text: "Plantilla de AWS CloudFormation" },
+      { id: "c", text: "Instantánea de Amazon Elastic Block Store (Amazon EBS)" },
+      { id: "d", text: "Amazon Machine Image (AMI)" },
+    ],
+    correctAnswers: ["d"],
+    explanation: {
+      correct:
+        "Una Amazon Machine Image (AMI) es una plantilla que contiene la configuración de software (sistema operativo, aplicaciones, configuraciones) necesaria para lanzar una instancia EC2. Puedes usar AMIs públicas, del marketplace o crear las tuyas propias.",
+      whyOthersWrong: {
+        a: "Los volúmenes EBS son almacenamiento en bloque, no plantillas de instancia.",
+        b: "Las plantillas CloudFormation definen infraestructura como código, pero no son imágenes de máquina.",
+        c: "Las instantáneas EBS son respaldos de volúmenes, no plantillas de instancia.",
+      },
+    },
+    tags: ["ami", "ec2", "plantillas"],
+  },
+  {
+    id: "clf-134",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-1",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Un profesional de la nube está analizando el rendimiento y uso de instancias de Amazon EC2 para entregar recomendaciones de posibles ahorros de costos. ¿Qué práctica describe esta actividad?",
+    options: [
+      { id: "a", text: "Auto Scaling" },
+      { id: "b", text: "Dimensionamiento correcto (Rightsizing)" },
+      { id: "c", text: "Balanceo de carga" },
+      { id: "d", text: "Alta disponibilidad" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "El dimensionamiento correcto (rightsizing) es el proceso de analizar el uso de recursos y optimizar seleccionando el tipo, tamaño y configuración de instancia más apropiados. Ayuda a reducir el sobreaprovisionamiento y optimizar costos.",
+      whyOthersWrong: {
+        a: "Auto Scaling ajusta automáticamente la capacidad según demanda, no analiza para recomendaciones.",
+        c: "El balanceo de carga distribuye tráfico entre múltiples recursos.",
+        d: "La alta disponibilidad se refiere a mantener sistemas operativos, no a optimización de costos.",
+      },
+    },
+    tags: ["rightsizing", "optimizacion-costos", "dimensionamiento"],
+  },
+  {
+    id: "clf-135",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-1",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa proporciona una aplicación de Software como servicio (SaaS). Tiene un nuevo cliente en un país diferente donde los datos del cliente deben estar alojados en ese país. ¿Qué servicio o componente de infraestructura de AWS debe usar la empresa?",
+    options: [
+      { id: "a", text: "AWS Shield" },
+      { id: "b", text: "Amazon S3 Object Lock" },
+      { id: "c", text: "Regiones de AWS" },
+      { id: "d", text: "Grupos de ubicación (Placement groups)" },
+    ],
+    correctAnswers: ["c"],
+    explanation: {
+      correct:
+        "Las Regiones de AWS son áreas geográficas donde AWS tiene clústeres de centros de datos. Alojando los datos del cliente en una región específica del país requerido, la empresa cumple con los requisitos de residencia de datos.",
+      whyOthersWrong: {
+        a: "AWS Shield protege contra ataques DDoS, no determina dónde se alojan los datos.",
+        b: "S3 Object Lock previene eliminación de objetos, no controla ubicación geográfica.",
+        d: "Los grupos de ubicación optimizan el posicionamiento de instancias dentro de una región, no entre países.",
+      },
+    },
+    tags: ["regiones", "residencia-datos", "compliance", "soberania-datos"],
+  },
+  {
+    id: "clf-136",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-1",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa de manufactura tiene una aplicación crítica que se ejecuta en una ubicación remota con conexión a Internet lenta. La empresa quiere migrar la carga de trabajo a AWS. La aplicación es sensible a la latencia y propensa a interrupciones de conectividad. ¿Qué servicio de AWS debe usar?",
+    options: [
+      { id: "a", text: "Zonas de disponibilidad" },
+      { id: "b", text: "AWS Local Zones" },
+      { id: "c", text: "AWS Wavelength" },
+      { id: "d", text: "AWS Outposts" },
+    ],
+    correctAnswers: ["d"],
+    explanation: {
+      correct:
+        "AWS Outposts permite ejecutar infraestructura y servicios de AWS en las instalaciones del cliente. Es ideal para aplicaciones sensibles a latencia que necesitan procesamiento local y pueden tener conectividad intermitente a la nube.",
+      whyOthersWrong: {
+        a: "Las zonas de disponibilidad están en la nube de AWS, no resuelven problemas de conexión lenta a ubicaciones remotas.",
+        b: "Local Zones extienden AWS a áreas metropolitanas, pero requieren buena conectividad a AWS.",
+        c: "Wavelength está diseñado para aplicaciones 5G en el borde de redes de telecomunicaciones.",
+      },
+    },
+    tags: ["outposts", "hibrido", "baja-latencia", "on-premises"],
+  },
 ];
 
 export default domain1Questions;

@@ -19,17 +19,33 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { getProgress, getStreak, resetProgress } from "@/lib/storage";
+import { getProgress, getStreak, resetProgress, getExamHistory, calculateAchievements, ACHIEVEMENTS } from "@/lib/storage";
+import { getScoreColor } from "@/lib/utils";
+
+interface CertificationStats {
+  id: string;
+  name: string;
+  code: string;
+  icon: string;
+  totalExams: number;
+  passedExams: number;
+  averageScore: number;
+  bestScore: number;
+}
 
 export default function ProgressPage() {
   const [streak, setStreak] = useState<{ current: number; longest: number }>({ current: 0, longest: 0 });
   const [hasProgress, setHasProgress] = useState(false);
   const [showResetModal, setShowResetModal] = useState(false);
+  const [certStats, setCertStats] = useState<CertificationStats[]>([]);
+  const [unlockedAchievements, setUnlockedAchievements] = useState<string[]>([]);
 
   const handleResetProgress = () => {
     resetProgress();
     setStreak({ current: 0, longest: 0 });
     setHasProgress(false);
+    setCertStats([]);
+    setUnlockedAchievements([]);
     setShowResetModal(false);
   };
 
@@ -38,9 +54,33 @@ export default function ProgressPage() {
     const progress = getProgress();
     setStreak(streakData);
     
-    // Check if user has any progress
+    // Check if user has any progress and calculate stats
     const certifications = Object.keys(progress.certifications || {});
-    setHasProgress(certifications.length > 0);
+    const hasAnyProgress = certifications.some(certId => {
+      const history = getExamHistory(certId);
+      return history.length > 0;
+    });
+    setHasProgress(hasAnyProgress);
+
+    // Calculate stats for AWS CLF-C02
+    const awsHistory = getExamHistory("aws-clf-c02");
+    if (awsHistory.length > 0) {
+      const stats: CertificationStats = {
+        id: "aws-clf-c02",
+        name: "AWS Cloud Practitioner",
+        code: "CLF-C02",
+        icon: "☁️",
+        totalExams: awsHistory.length,
+        passedExams: awsHistory.filter(e => e.score >= 700).length,
+        averageScore: Math.round(awsHistory.reduce((acc, e) => acc + e.score, 0) / awsHistory.length),
+        bestScore: Math.max(...awsHistory.map(e => e.score)),
+      };
+      setCertStats([stats]);
+
+      // Calculate achievements
+      const { all } = calculateAchievements("aws-clf-c02");
+      setUnlockedAchievements(all);
+    }
   }, []);
 
   return (
@@ -123,42 +163,72 @@ export default function ProgressPage() {
         ) : (
           /* Progress Content */
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              <Link href="/certifications/aws-clf-c02/progress">
-                <Card hover="lift" className="h-full">
-                  <CardHeader>
-                    <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-xl bg-orange-50/80 dark:bg-orange-900/30 flex items-center justify-center text-2xl">
-                        ☁️
-                      </div>
-                      <div>
-                        <CardTitle className="text-lg">AWS Cloud Practitioner</CardTitle>
-                        <Badge variant="outline" size="sm">CLF-C02</Badge>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div>
-                        <div className="flex justify-between text-sm mb-1">
-                          <span className="text-gray-600 dark:text-gray-400">Progreso general</span>
-                          <span className="font-medium text-gray-900 dark:text-white">Ver detalles</span>
+            {certStats.map((cert, index) => (
+              <motion.div
+                key={cert.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + index * 0.1 }}
+              >
+                <Link href={`/certifications/${cert.id}/progress`}>
+                  <Card hover="lift" className="h-full">
+                    <CardHeader>
+                      <div className="flex items-center gap-4">
+                        <div className="w-14 h-14 rounded-xl bg-orange-50/80 dark:bg-orange-900/30 flex items-center justify-center text-2xl">
+                          {cert.icon}
                         </div>
-                        <Progress value={0} />
+                        <div>
+                          <CardTitle className="text-lg">{cert.name}</CardTitle>
+                          <Badge variant="outline" size="sm">{cert.code}</Badge>
+                        </div>
                       </div>
-                      <Button size="sm" variant="outline" className="w-full">
-                        Ver Progreso Completo
-                        <ArrowRight className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            </motion.div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        {/* Stats Grid */}
+                        <div className="grid grid-cols-2 gap-4">
+                          <div className="text-center p-3 bg-slate-50/80 dark:bg-gray-800 rounded-xl">
+                            <div className="text-2xl font-bold text-purple-600">{cert.totalExams}</div>
+                            <div className="text-xs text-gray-500">Exámenes</div>
+                          </div>
+                          <div className="text-center p-3 bg-slate-50/80 dark:bg-gray-800 rounded-xl">
+                            <div className="text-2xl font-bold text-green-600">{cert.passedExams}</div>
+                            <div className="text-xs text-gray-500">Aprobados</div>
+                          </div>
+                          <div className="text-center p-3 bg-slate-50/80 dark:bg-gray-800 rounded-xl">
+                            <div className={`text-2xl font-bold ${getScoreColor(cert.averageScore)}`}>{cert.averageScore}</div>
+                            <div className="text-xs text-gray-500">Promedio</div>
+                          </div>
+                          <div className="text-center p-3 bg-slate-50/80 dark:bg-gray-800 rounded-xl">
+                            <div className={`text-2xl font-bold ${getScoreColor(cert.bestScore)}`}>{cert.bestScore}</div>
+                            <div className="text-xs text-gray-500">Mejor</div>
+                          </div>
+                        </div>
+                        
+                        {/* Progress bar based on pass rate */}
+                        <div>
+                          <div className="flex justify-between text-sm mb-1">
+                            <span className="text-gray-600 dark:text-gray-400">Tasa de aprobación</span>
+                            <span className="font-medium text-gray-900 dark:text-white">
+                              {cert.totalExams > 0 ? Math.round((cert.passedExams / cert.totalExams) * 100) : 0}%
+                            </span>
+                          </div>
+                          <Progress 
+                            value={cert.totalExams > 0 ? (cert.passedExams / cert.totalExams) * 100 : 0}
+                            variant={cert.passedExams / cert.totalExams >= 0.7 ? "success" : cert.passedExams / cert.totalExams >= 0.5 ? "warning" : "danger"}
+                          />
+                        </div>
+                        
+                        <Button size="sm" variant="outline" className="w-full">
+                          Ver Progreso Completo
+                          <ArrowRight className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </motion.div>
+            ))}
           </div>
         )}
 
@@ -171,23 +241,27 @@ export default function ProgressPage() {
         >
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
             <Award className="h-5 w-5 text-amber-500" />
-            Logros
+            Logros ({unlockedAchievements.length}/{ACHIEVEMENTS.length})
           </h2>
           <div className="grid gap-4 grid-cols-2 md:grid-cols-4">
-            {[
-              { icon: "🎯", name: "Primer Paso", desc: "Completa tu primer examen" },
-              { icon: "🔥", name: "En Llamas", desc: "3 días de racha" },
-              { icon: "🏆", name: "Victoria", desc: "Aprueba un examen" },
-              { icon: "⭐", name: "Perfección", desc: "Obtén 1000 puntos" },
-            ].map((achievement, i) => (
-              <Card key={i} className="opacity-50">
-                <CardContent className="py-4 text-center">
-                  <div className="text-3xl mb-2 grayscale">{achievement.icon}</div>
-                  <p className="font-medium text-gray-900 dark:text-white text-sm">{achievement.name}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">{achievement.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
+            {ACHIEVEMENTS.map((achievement) => {
+              const isUnlocked = unlockedAchievements.includes(achievement.id);
+              return (
+                <Card 
+                  key={achievement.id} 
+                  className={isUnlocked ? "border-yellow-200 bg-yellow-50/50 dark:border-yellow-800 dark:bg-yellow-900/20" : "opacity-50"}
+                >
+                  <CardContent className="py-4 text-center">
+                    <div className={`text-3xl mb-2 ${!isUnlocked ? "grayscale" : ""}`}>{achievement.icon}</div>
+                    <p className="font-medium text-gray-900 dark:text-white text-sm">{achievement.name}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">{achievement.description}</p>
+                    {isUnlocked && (
+                      <Badge variant="success" size="sm" className="mt-2">Desbloqueado</Badge>
+                    )}
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </motion.div>
 

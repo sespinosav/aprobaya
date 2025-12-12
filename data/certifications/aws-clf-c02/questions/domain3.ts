@@ -808,7 +808,7 @@ export const domain3Questions: Question[] = [
     tags: ["lightsail", "vps", "precio-fijo", "simplicidad"],
   },
   {
-    id: "clf-113",
+    id: "clf-171",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -834,7 +834,7 @@ export const domain3Questions: Question[] = [
     tags: ["cloudfront", "cdn", "entrega-contenido", "baja-latencia"],
   },
   {
-    id: "clf-114",
+    id: "clf-172",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -860,7 +860,7 @@ export const domain3Questions: Question[] = [
     tags: ["efs", "fsx", "almacenamiento-archivos", "storage"],
   },
   {
-    id: "clf-115",
+    id: "clf-173",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -886,7 +886,7 @@ export const domain3Questions: Question[] = [
     tags: ["rds", "mysql", "base-datos-gestionada", "automatizacion"],
   },
   {
-    id: "clf-116",
+    id: "clf-174",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -912,7 +912,7 @@ export const domain3Questions: Question[] = [
     tags: ["outposts", "hibrido", "on-premises", "edge"],
   },
   {
-    id: "clf-117",
+    id: "clf-175",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -938,7 +938,7 @@ export const domain3Questions: Question[] = [
     tags: ["eventbridge", "serverless", "eventos", "integracion"],
   },
   {
-    id: "clf-118",
+    id: "clf-176",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -964,7 +964,7 @@ export const domain3Questions: Question[] = [
     tags: ["auto-scaling", "elasticidad", "demanda", "costos"],
   },
   {
-    id: "clf-119",
+    id: "clf-177",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -990,7 +990,7 @@ export const domain3Questions: Question[] = [
     tags: ["storage-gateway", "tape-gateway", "backup", "hibrido"],
   },
   {
-    id: "clf-120",
+    id: "clf-178",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -1016,7 +1016,7 @@ export const domain3Questions: Question[] = [
     tags: ["dynamodb", "nosql", "alto-rendimiento", "escalabilidad"],
   },
   {
-    id: "clf-121",
+    id: "clf-179",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -1042,7 +1042,7 @@ export const domain3Questions: Question[] = [
     tags: ["rds", "multi-az", "resiliencia", "alta-disponibilidad"],
   },
   {
-    id: "clf-122",
+    id: "clf-180",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -1068,7 +1068,7 @@ export const domain3Questions: Question[] = [
     tags: ["cloudformation", "iac", "desarrollo", "produccion"],
   },
   {
-    id: "clf-123",
+    id: "clf-181",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -1094,7 +1094,7 @@ export const domain3Questions: Question[] = [
     tags: ["textract", "ia", "ocr", "documentos"],
   },
   {
-    id: "clf-124",
+    id: "clf-182",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -1120,7 +1120,7 @@ export const domain3Questions: Question[] = [
     tags: ["step-functions", "orquestacion", "lambda", "workflow"],
   },
   {
-    id: "clf-125",
+    id: "clf-183",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -1146,7 +1146,7 @@ export const domain3Questions: Question[] = [
     tags: ["regiones", "residencia-datos", "compliance", "global"],
   },
   {
-    id: "clf-126",
+    id: "clf-184",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -1172,7 +1172,7 @@ export const domain3Questions: Question[] = [
     tags: ["outposts", "on-premises", "latencia", "edge"],
   },
   {
-    id: "clf-127",
+    id: "clf-185",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -1198,7 +1198,7 @@ export const domain3Questions: Question[] = [
     tags: ["vpc", "internet-gateway", "conectividad", "redes"],
   },
   {
-    id: "clf-128",
+    id: "clf-186",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -1224,7 +1224,7 @@ export const domain3Questions: Question[] = [
     tags: ["neptune", "base-datos-grafos", "recomendaciones"],
   },
   {
-    id: "clf-129",
+    id: "clf-187",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "multiple",
@@ -1251,7 +1251,7 @@ export const domain3Questions: Question[] = [
     tags: ["vpc", "subred-publica", "internet-gateway", "rutas"],
   },
   {
-    id: "clf-130",
+    id: "clf-188",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -1277,7 +1277,7 @@ export const domain3Questions: Question[] = [
     tags: ["ec2", "alta-disponibilidad", "multi-az", "confiabilidad"],
   },
   {
-    id: "clf-131",
+    id: "clf-189",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -1303,7 +1303,7 @@ export const domain3Questions: Question[] = [
     tags: ["cloudformation", "iac", "automatizacion", "testing"],
   },
   {
-    id: "clf-132",
+    id: "clf-190",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -1329,7 +1329,7 @@ export const domain3Questions: Question[] = [
     tags: ["elastic-beanstalk", "paas", "despliegue-rapido"],
   },
   {
-    id: "clf-133",
+    id: "clf-191",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "multiple",
@@ -1356,7 +1356,7 @@ export const domain3Questions: Question[] = [
     tags: ["sqs", "step-functions", "acoplamiento-debil", "arquitectura"],
   },
   {
-    id: "clf-134",
+    id: "clf-192",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -1382,7 +1382,7 @@ export const domain3Questions: Question[] = [
     tags: ["security-groups", "ec2", "firewall", "trafico"],
   },
   {
-    id: "clf-135",
+    id: "clf-193",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "single",
@@ -1408,7 +1408,7 @@ export const domain3Questions: Question[] = [
     tags: ["athena", "s3", "consultas-sql", "serverless"],
   },
   {
-    id: "clf-136",
+    id: "clf-194",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
     type: "multiple",
@@ -1564,6 +1564,685 @@ export const domain3Questions: Question[] = [
       },
     },
     tags: ["personalize", "ml", "recomendaciones", "personalizacion"],
+  },
+  {
+    id: "clf-195",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "easy",
+    question:
+      "¿Qué característica o recurso de AWS es una plantilla de instancia de Amazon EC2 implementable que está preempaquetada con software y requisitos de seguridad?",
+    options: [
+      { id: "a", text: "Volumen de Amazon Elastic Block Store (Amazon EBS)" },
+      { id: "b", text: "Plantilla de AWS CloudFormation" },
+      { id: "c", text: "Instantánea de Amazon Elastic Block Store (Amazon EBS)" },
+      { id: "d", text: "Amazon Machine Image (AMI)" },
+    ],
+    correctAnswers: ["d"],
+    explanation: {
+      correct:
+        "Una Amazon Machine Image (AMI) es una plantilla de instancia de Amazon EC2 implementable que está preempaquetada con software y requisitos de seguridad. Proporciona la información necesaria para lanzar una instancia, incluyendo el sistema operativo, aplicaciones y configuraciones.",
+      whyOthersWrong: {
+        a: "Un volumen EBS es almacenamiento de bloques, no una plantilla de instancia.",
+        b: "Una plantilla de CloudFormation define infraestructura completa, no es específica para EC2.",
+        c: "Una instantánea EBS es una copia de respaldo de un volumen, no una plantilla de instancia.",
+      },
+    },
+    tags: ["ami", "ec2", "plantilla", "imagen"],
+  },
+  {
+    id: "clf-196",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa ha estado almacenando informes mensuales en un bucket de Amazon S3. La empresa exporta los datos del informe a archivos de valores separados por comas (.csv). Un desarrollador quiere escribir una consulta SQL simple que pueda leer todos esos archivos y generar un informe resumido. ¿Qué servicio de AWS debe usar?",
+    options: [
+      { id: "a", text: "Amazon S3 Select" },
+      { id: "b", text: "Amazon Athena" },
+      { id: "c", text: "Amazon Redshift" },
+      { id: "d", text: "Amazon EC2" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "Amazon Athena es un servicio de consultas interactivo que permite analizar datos en Amazon S3 usando SQL estándar. No requiere configuración ni administración de servidores, y los usuarios solo pagan por las consultas que ejecutan. Es ideal para consultar archivos CSV directamente desde S3.",
+      whyOthersWrong: {
+        a: "S3 Select permite filtrar datos de un solo objeto, no consultar múltiples archivos con SQL complejo.",
+        c: "Redshift es un data warehouse que requiere cargar los datos, no consulta directamente S3 como Athena.",
+        d: "EC2 requeriría configurar y administrar servidores para procesar los datos.",
+      },
+    },
+    tags: ["athena", "s3", "sql", "csv", "consultas"],
+  },
+  {
+    id: "clf-197",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué servicio de base de datos de AWS proporciona un almacén de datos en memoria para mejorar el rendimiento de aplicaciones?",
+    options: [
+      { id: "a", text: "Amazon DynamoDB" },
+      { id: "b", text: "Amazon ElastiCache" },
+      { id: "c", text: "Amazon RDS" },
+      { id: "d", text: "Amazon Timestream" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "Amazon ElastiCache es un servicio de almacén de datos en memoria completamente administrado que soporta Redis y Memcached. Es ideal para casos de uso que requieren tiempos de respuesta de sub-milisegundo, como caching, gestión de sesiones y tablas de clasificación.",
+      whyOthersWrong: {
+        a: "DynamoDB es una base de datos NoSQL persistente, aunque tiene DAX para caching.",
+        c: "RDS es para bases de datos relacionales persistentes en disco.",
+        d: "Timestream es para series temporales, no un almacén de datos en memoria de propósito general.",
+      },
+    },
+    tags: ["elasticache", "cache", "en-memoria", "redis", "memcached"],
+  },
+  {
+    id: "clf-145",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa necesita migrar todos sus equipos de desarrollo a un entorno de desarrollo integrado (IDE) basado en la nube. ¿Qué servicio de AWS debe usar?",
+    options: [
+      { id: "a", text: "AWS CodeBuild" },
+      { id: "b", text: "AWS Cloud9" },
+      { id: "c", text: "AWS OpsWorks" },
+      { id: "d", text: "AWS CDK (Cloud Development Kit)" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "AWS Cloud9 es un entorno de desarrollo integrado (IDE) basado en la nube que permite escribir, ejecutar y depurar código desde un navegador web. Soporta múltiples lenguajes de programación y proporciona acceso terminal a servicios de AWS.",
+      whyOthersWrong: {
+        a: "CodeBuild es para compilar y probar código, no es un IDE.",
+        c: "OpsWorks es para gestión de configuración con Chef o Puppet.",
+        d: "CDK es un framework para definir infraestructura como código, no un IDE.",
+      },
+    },
+    tags: ["cloud9", "ide", "desarrollo", "navegador"],
+  },
+  {
+    id: "clf-146",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa tiene una carga de trabajo de aplicación que está diseñada para ser sin estado y puede tolerar interrupciones ocasionales. La aplicación realiza cálculos masivamente paralelos. ¿Qué modelo de precios de instancias de Amazon EC2 debería elegir la empresa para reducir costos?",
+    options: [
+      { id: "a", text: "Instancias bajo demanda (On-Demand)" },
+      { id: "b", text: "Instancias Spot" },
+      { id: "c", text: "Instancias reservadas" },
+      { id: "d", text: "Instancias dedicadas" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "Las instancias Spot permiten aprovechar la capacidad no utilizada de EC2 en AWS con descuentos de hasta el 90% en comparación con los precios bajo demanda. Son ideales para cargas de trabajo tolerantes a interrupciones y flexibles en cuanto al tiempo.",
+      whyOthersWrong: {
+        a: "Las instancias bajo demanda son más caras y no ofrecen descuentos significativos.",
+        c: "Las instancias reservadas requieren compromiso a largo plazo y no son óptimas para cargas interrumpibles.",
+        d: "Las instancias dedicadas son más costosas y para requisitos de cumplimiento específicos.",
+      },
+    },
+    tags: ["ec2", "spot-instances", "costos", "compute"],
+  },
+  {
+    id: "clf-147",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa está alojando una aplicación web en AWS usando una sola instancia de Amazon EC2 que almacena documentos subidos por usuarios en un volumen de Amazon EBS. Para mejor escalabilidad y disponibilidad, la empresa duplicó la arquitectura creando una segunda instancia EC2 y volumen EBS en otra Zona de Disponibilidad, colocando ambas detrás de un Application Load Balancer. Los usuarios reportan que ven diferentes subconjuntos de sus documentos dependiendo de qué servidor les atiende. ¿Qué solución debe proponer el arquitecto?",
+    options: [
+      { id: "a", text: "Copiar los datos para que ambos volúmenes EBS contengan todos los documentos" },
+      { id: "b", text: "Configurar el ALB para enrutar a cada usuario al servidor con sus documentos" },
+      { id: "c", text: "Copiar los datos de ambos volúmenes EBS a Amazon EFS. Modificar la aplicación para guardar nuevos documentos en Amazon EFS" },
+      { id: "d", text: "Configurar el ALB para enviar la solicitud a ambos servidores y devolver cada documento del servidor correcto" },
+    ],
+    correctAnswers: ["c"],
+    explanation: {
+      correct:
+        "Amazon EFS (Elastic File System) es un sistema de archivos que puede ser accedido simultáneamente por múltiples instancias EC2 en diferentes Zonas de Disponibilidad. Esto asegura que todos los usuarios vean todos sus documentos independientemente de qué instancia les atienda.",
+      whyOthersWrong: {
+        a: "Sincronizar manualmente EBS no escala y no mantiene consistencia en tiempo real.",
+        b: "Esto añade complejidad y no resuelve el problema de disponibilidad.",
+        d: "No es técnicamente viable y añadiría latencia innecesaria.",
+      },
+    },
+    tags: ["efs", "ebs", "almacenamiento-compartido", "multi-az", "escalabilidad"],
+  },
+  {
+    id: "clf-148",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "easy",
+    question:
+      "¿Qué servicio o característica de AWS permite cifrar datos en reposo en Amazon S3?",
+    options: [
+      { id: "a", text: "Políticas de IAM" },
+      { id: "b", text: "Cifrado del lado del servidor (Server-side encryption)" },
+      { id: "c", text: "Amazon GuardDuty" },
+      { id: "d", text: "Cifrado del lado del cliente (Client-side encryption)" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "El cifrado del lado del servidor es una opción que Amazon S3 proporciona para cifrar datos en reposo. Con esta opción, Amazon S3 cifra un objeto antes de guardarlo en disco en sus centros de datos y lo descifra cuando se descarga.",
+      whyOthersWrong: {
+        a: "Las políticas de IAM controlan acceso, no cifran datos.",
+        c: "GuardDuty es para detección de amenazas, no cifrado.",
+        d: "El cifrado del lado del cliente se realiza antes de enviar a S3, no es una característica de S3.",
+      },
+    },
+    tags: ["s3", "cifrado", "server-side-encryption", "seguridad"],
+  },
+  {
+    id: "clf-149",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué servicio de AWS proporciona cifrado en reposo para Amazon RDS y volúmenes de Amazon Elastic Block Store (Amazon EBS)?",
+    options: [
+      { id: "a", text: "AWS Lambda" },
+      { id: "b", text: "AWS Key Management Service (AWS KMS)" },
+      { id: "c", text: "AWS WAF" },
+      { id: "d", text: "Amazon Rekognition" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "AWS Key Management Service (AWS KMS) es un servicio administrado que facilita crear y controlar las claves de cifrado utilizadas para proteger datos. AWS KMS proporciona control centralizado sobre las claves de cifrado usadas para proteger datos en Amazon RDS y volúmenes EBS.",
+      whyOthersWrong: {
+        a: "Lambda es un servicio de cómputo serverless, no de cifrado.",
+        c: "WAF es un firewall de aplicaciones web, no para cifrado de datos.",
+        d: "Rekognition es para análisis de imágenes y video, no cifrado.",
+      },
+    },
+    tags: ["kms", "cifrado", "rds", "ebs", "seguridad"],
+  },
+  {
+    id: "clf-150",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Un ingeniero de TI necesita acceder a servicios de AWS desde una aplicación on-premises. ¿Qué credenciales o claves necesita la aplicación para autenticación?",
+    options: [
+      { id: "a", text: "Nombre de usuario y contraseña de la cuenta AWS" },
+      { id: "b", text: "Access key y secret key de IAM" },
+      { id: "c", text: "Par de claves de Amazon EC2" },
+      { id: "d", text: "Claves de AWS Key Management Service (AWS KMS)" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "Las access keys de IAM son credenciales de largo plazo que consisten en un access key ID y un secret access key. Se usan para firmar solicitudes programáticas que se hacen a AWS desde aplicaciones on-premises u otras ubicaciones externas.",
+      whyOthersWrong: {
+        a: "El nombre de usuario y contraseña son para acceso a la consola, no para acceso programático.",
+        c: "Los pares de claves EC2 son para conexión SSH a instancias, no para acceso a API de AWS.",
+        d: "Las claves KMS son para cifrar datos, no para autenticación de API.",
+      },
+    },
+    tags: ["iam", "access-keys", "autenticacion", "programatico"],
+  },
+  {
+    id: "clf-151",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "multiple",
+    difficulty: "medium",
+    question:
+      "La elasticidad en la nube de AWS se refiere a ¿cuáles de los siguientes? (Seleccione DOS)",
+    options: [
+      { id: "a", text: "Qué tan rápido se puede reiniciar una instancia de Amazon EC2" },
+      { id: "b", text: "La capacidad de escalar recursos según la demanda cambia" },
+      { id: "c", text: "La cantidad máxima de RAM que puede usar una instancia de Amazon EC2" },
+      { id: "d", text: "El modelo de facturación de pago por uso" },
+      { id: "e", text: "Qué tan fácilmente se pueden obtener recursos cuando se necesitan" },
+    ],
+    correctAnswers: ["b", "e"],
+    explanation: {
+      correct:
+        "La elasticidad en la nube de AWS se refiere a la capacidad de adquirir recursos cuando se necesitan y liberarlos cuando ya no son necesarios. Esto significa que puedes escalar recursos según la demanda cambia y obtener recursos fácilmente cuando se requieren.",
+      whyOthersWrong: {
+        a: "La velocidad de reinicio no define la elasticidad.",
+        c: "La cantidad máxima de RAM es una especificación de instancia, no elasticidad.",
+        d: "El pago por uso es un modelo de precios, relacionado pero no es la definición de elasticidad.",
+      },
+    },
+    tags: ["elasticidad", "escalabilidad", "cloud-computing", "recursos"],
+  },
+  {
+    id: "clf-152",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "La aplicación de una empresa tiene alto uso de clientes en ciertos momentos del día. La empresa quiere reducir el número de instancias de Amazon EC2 en ejecución cuando el uso de la aplicación es bajo. ¿Qué servicio u opción de compra de instancias de AWS debe usar?",
+    options: [
+      { id: "a", text: "EC2 Instance Savings Plans" },
+      { id: "b", text: "Spot Instances" },
+      { id: "c", text: "Reserved Instances" },
+      { id: "d", text: "Amazon EC2 Auto Scaling" },
+    ],
+    correctAnswers: ["d"],
+    explanation: {
+      correct:
+        "Amazon EC2 Auto Scaling es un servicio que puede ayudar a reducir automáticamente el número de instancias EC2 en ejecución cuando el uso de la aplicación es bajo. Permite crear políticas de escalado que ajustan automáticamente el número de instancias basándose en la demanda.",
+      whyOthersWrong: {
+        a: "Savings Plans ofrecen descuentos pero no escalan automáticamente las instancias.",
+        b: "Spot Instances ofrecen descuentos pero no escalan automáticamente según la demanda.",
+        c: "Reserved Instances son para compromiso a largo plazo, no escalan automáticamente.",
+      },
+    },
+    tags: ["auto-scaling", "ec2", "demanda", "optimizacion"],
+  },
+  {
+    id: "clf-153",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa está ejecutando una aplicación monolítica on-premises que no escala y es difícil de mantener. La empresa planea migrar la aplicación a AWS y dividirla en microservicios. ¿Qué mejor práctica del AWS Well-Architected Framework está siguiendo la empresa con este plan?",
+    options: [
+      { id: "a", text: "Integrar pruebas funcionales como parte del despliegue en AWS" },
+      { id: "b", text: "Usar automatización para hacer cambios" },
+      { id: "c", text: "Desplegar la aplicación en múltiples ubicaciones" },
+      { id: "d", text: "Implementar dependencias débilmente acopladas" },
+    ],
+    correctAnswers: ["d"],
+    explanation: {
+      correct:
+        "La empresa está siguiendo la mejor práctica de implementar dependencias débilmente acopladas al migrar la aplicación a AWS y dividirla en microservicios. El acoplamiento débil es un principio de diseño del AWS Well-Architected Framework que ayuda a reducir interdependencias entre componentes y mejorar la escalabilidad, confiabilidad y rendimiento del sistema.",
+      whyOthersWrong: {
+        a: "Las pruebas funcionales son importantes pero no es lo que describe dividir en microservicios.",
+        b: "La automatización es buena práctica pero no describe la arquitectura de microservicios.",
+        c: "Múltiples ubicaciones mejoran disponibilidad pero no describe el desacoplamiento.",
+      },
+    },
+    tags: ["well-architected", "microservicios", "acoplamiento-debil", "arquitectura"],
+  },
+  {
+    id: "clf-154",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué herramienta o servicio de AWS proporciona recomendaciones para ayudar a los usuarios a obtener instancias de Amazon EC2 del tamaño correcto según los datos de uso histórico de la carga de trabajo?",
+    options: [
+      { id: "a", text: "Calculadora de precios de AWS" },
+      { id: "b", text: "AWS Compute Optimizer" },
+      { id: "c", text: "AWS App Runner" },
+      { id: "d", text: "AWS Systems Manager" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "AWS Compute Optimizer proporciona recomendaciones para ayudar a los usuarios a obtener instancias de Amazon EC2 del tamaño correcto según los datos de uso histórico de la carga de trabajo. Usa machine learning para analizar métricas y recomendar el tipo de instancia óptimo.",
+      whyOthersWrong: {
+        a: "La Calculadora de precios estima costos pero no analiza uso histórico para recomendar tamaños.",
+        c: "App Runner es para desplegar aplicaciones containerizadas, no para optimización de instancias.",
+        d: "Systems Manager gestiona infraestructura pero no optimiza tamaños de instancia.",
+      },
+    },
+    tags: ["compute-optimizer", "ec2", "rightsizing", "optimizacion"],
+  },
+  {
+    id: "clf-155",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Un ingeniero de nube quiere conocer el porcentaje de unidades de computación asignadas que están en uso para una instancia específica de Amazon EC2. ¿Qué servicio de AWS puede proporcionar esta información?",
+    options: [
+      { id: "a", text: "AWS CloudTrail" },
+      { id: "b", text: "AWS Config" },
+      { id: "c", text: "Amazon CloudWatch" },
+      { id: "d", text: "AWS Artifact" },
+    ],
+    correctAnswers: ["c"],
+    explanation: {
+      correct:
+        "Amazon CloudWatch puede proporcionar métricas detalladas sobre la utilización de instancias de Amazon EC2, incluyendo CPUUtilization que muestra el porcentaje de unidades de computación asignadas en uso.",
+      whyOthersWrong: {
+        a: "CloudTrail registra llamadas de API y eventos de cuenta, no métricas de rendimiento.",
+        b: "AWS Config rastrea cambios de configuración de recursos, no métricas de rendimiento.",
+        d: "Artifact proporciona informes de cumplimiento, no métricas de instancias.",
+      },
+    },
+    tags: ["cloudwatch", "ec2", "metricas", "monitoreo"],
+  },
+  {
+    id: "clf-156",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué servicio de AWS proporciona un lugar único para rastrear el progreso de las migraciones de aplicaciones?",
+    options: [
+      { id: "a", text: "AWS Application Discovery Service" },
+      { id: "b", text: "AWS Application Migration Service" },
+      { id: "c", text: "AWS Service Catalog" },
+      { id: "d", text: "AWS Migration Hub" },
+    ],
+    correctAnswers: ["d"],
+    explanation: {
+      correct:
+        "AWS Migration Hub es un servicio que proporciona un lugar único para rastrear el progreso de las migraciones de aplicaciones a través de múltiples soluciones de AWS y partners. Permite elegir las herramientas de migración que mejor se adapten a tus necesidades.",
+      whyOthersWrong: {
+        a: "Application Discovery Service descubre información sobre servidores on-premises, no rastrea migraciones.",
+        b: "Application Migration Service realiza las migraciones reales (lift-and-shift), no centraliza el rastreo.",
+        c: "Service Catalog gestiona catálogos de servicios aprobados, no migraciones.",
+      },
+    },
+    tags: ["migration-hub", "migracion", "rastreo", "aws-migration"],
+  },
+  {
+    id: "clf-157",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa necesita implementar gestión de identidad para una flota de aplicaciones móviles que se ejecutan en la nube de AWS. ¿Qué servicio de AWS cumplirá este requisito?",
+    options: [
+      { id: "a", text: "Amazon Cognito" },
+      { id: "b", text: "AWS Security Hub" },
+      { id: "c", text: "AWS Shield" },
+      { id: "d", text: "AWS WAF" },
+    ],
+    correctAnswers: ["a"],
+    explanation: {
+      correct:
+        "Amazon Cognito es un servicio que proporciona identidad de usuario y autenticación para aplicaciones móviles y web, permitiendo a los usuarios registrarse, iniciar sesión y acceder a recursos de AWS con diferentes proveedores de identidad como Google, Facebook o SAML.",
+      whyOthersWrong: {
+        b: "Security Hub agrega alertas de seguridad, no gestiona identidad de usuarios de aplicaciones.",
+        c: "Shield protege contra ataques DDoS, no gestiona identidad de usuarios.",
+        d: "WAF protege aplicaciones web contra exploits, no gestiona identidad de usuarios.",
+      },
+    },
+    tags: ["cognito", "identidad", "movil", "autenticacion"],
+  },
+  {
+    id: "clf-158",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa quiere consultar sus logs de servidor para obtener información sobre las experiencias de sus clientes. ¿Qué servicio de AWS almacenará estos datos de la manera más rentable?",
+    options: [
+      { id: "a", text: "Amazon Aurora" },
+      { id: "b", text: "Amazon Elastic File System (Amazon EFS)" },
+      { id: "c", text: "Amazon Elastic Block Store (Amazon EBS)" },
+      { id: "d", text: "Amazon S3" },
+    ],
+    correctAnswers: ["d"],
+    explanation: {
+      correct:
+        "Amazon S3 es un servicio de almacenamiento de objetos escalable, duradero y rentable. Es ideal para almacenar logs de servidor que se consultarán ocasionalmente, y ofrece múltiples clases de almacenamiento con diferentes características de precio y rendimiento.",
+      whyOthersWrong: {
+        a: "Aurora es una base de datos relacional, más costosa que S3 para almacenar logs.",
+        b: "EFS es almacenamiento de archivos compartido, más costoso que S3 para este caso de uso.",
+        c: "EBS es almacenamiento de bloques para EC2, no ideal para almacenar logs masivos.",
+      },
+    },
+    tags: ["s3", "logs", "almacenamiento", "costos"],
+  },
+  {
+    id: "clf-159",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué servicio de AWS necesita un servicio de gestión de vulnerabilidades automatizado que escanee continuamente las cargas de trabajo de AWS en busca de vulnerabilidades de software?",
+    options: [
+      { id: "a", text: "Amazon GuardDuty" },
+      { id: "b", text: "Amazon Inspector" },
+      { id: "c", text: "AWS Security Hub" },
+      { id: "d", text: "AWS Shield" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "Amazon Inspector es un servicio de gestión de vulnerabilidades automatizado que escanea continuamente las cargas de trabajo de AWS (instancias EC2, funciones Lambda, imágenes de contenedor) en busca de vulnerabilidades de software y exposiciones de red no intencionadas.",
+      whyOthersWrong: {
+        a: "GuardDuty detecta amenazas y comportamientos maliciosos, no vulnerabilidades de software.",
+        c: "Security Hub agrega alertas de seguridad de múltiples servicios, no escanea vulnerabilidades directamente.",
+        d: "Shield protege contra ataques DDoS, no escanea vulnerabilidades de software.",
+      },
+    },
+    tags: ["inspector", "vulnerabilidades", "seguridad", "escaneo"],
+  },
+  {
+    id: "clf-160",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Cuál es la cantidad total de almacenamiento que ofrece Amazon S3?",
+    options: [
+      { id: "a", text: "100 MB" },
+      { id: "b", text: "5 GB" },
+      { id: "c", text: "5 TB" },
+      { id: "d", text: "Ilimitado" },
+    ],
+    correctAnswers: ["d"],
+    explanation: {
+      correct:
+        "Amazon S3 ofrece almacenamiento ilimitado para cualquier cantidad de datos. Puedes almacenar tantos objetos como desees, y cada objeto puede tener hasta 5 TB de tamaño. Solo pagas por el espacio de almacenamiento que realmente usas.",
+      whyOthersWrong: {
+        a: "100 MB es un límite muy pequeño, S3 puede almacenar petabytes de datos.",
+        b: "5 GB no es el límite de S3; es la cantidad en el Free Tier mensual.",
+        c: "5 TB es el tamaño máximo de un solo objeto en S3, no el límite total.",
+      },
+    },
+    tags: ["s3", "almacenamiento", "capacidad", "ilimitado"],
+  },
+  {
+    id: "clf-161",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "easy",
+    question:
+      "¿Qué servicio de DNS de AWS es altamente disponible y escalable?",
+    options: [
+      { id: "a", text: "Amazon VPC" },
+      { id: "b", text: "Amazon CloudFront" },
+      { id: "c", text: "Amazon Route 53" },
+      { id: "d", text: "Amazon Connect" },
+    ],
+    correctAnswers: ["c"],
+    explanation: {
+      correct:
+        "Amazon Route 53 es un servicio web DNS altamente disponible y escalable. Está diseñado para proporcionar una forma confiable y rentable de enrutar usuarios finales a aplicaciones de Internet traduciendo nombres de dominio a direcciones IP.",
+      whyOthersWrong: {
+        a: "VPC es una red virtual aislada, no un servicio DNS.",
+        b: "CloudFront es una CDN para entrega de contenido, no un servicio DNS.",
+        d: "Amazon Connect es un centro de contacto en la nube, no un servicio DNS.",
+      },
+    },
+    tags: ["route53", "dns", "disponibilidad", "escalabilidad"],
+  },
+  {
+    id: "clf-162",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa tiene una aplicación con requisitos de hardware robustos. La aplicación debe ser accedida por estudiantes que usan laptops livianas y de bajo costo. ¿Qué servicio de AWS cumple estos requisitos?",
+    options: [
+      { id: "a", text: "Amazon AppStream 2.0" },
+      { id: "b", text: "AWS AppSync" },
+      { id: "c", text: "Amazon WorkLink" },
+      { id: "d", text: "AWS Elastic Beanstalk" },
+    ],
+    correctAnswers: ["a"],
+    explanation: {
+      correct:
+        "Amazon AppStream 2.0 es un servicio de streaming de aplicaciones completamente administrado que permite transmitir aplicaciones de escritorio desde AWS a cualquier dispositivo con un navegador web. Maneja el procesamiento en la nube, permitiendo que dispositivos de bajo costo accedan a aplicaciones con requisitos pesados.",
+      whyOthersWrong: {
+        b: "AppSync es para APIs GraphQL, no para streaming de aplicaciones.",
+        c: "WorkLink (descontinuado) era para acceso móvil seguro a intranet, no streaming de aplicaciones.",
+        d: "Elastic Beanstalk despliega aplicaciones web, no transmite aplicaciones de escritorio.",
+      },
+    },
+    tags: ["appstream", "streaming", "aplicaciones", "desktop"],
+  },
+  {
+    id: "clf-163",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Cuáles acciones son ejemplos del esfuerzo de una empresa por dimensionar correctamente (right-size) sus recursos de AWS para controlar los costos de la nube? (Seleccione DOS)",
+    options: [
+      { id: "a", text: "Cambiar de Amazon RDS a Amazon DynamoDB" },
+      { id: "b", text: "Seleccionar tipos de instancia de Amazon EC2 basándose en patrones de utilización anteriores" },
+      { id: "c", text: "Usar políticas de ciclo de vida de Amazon S3 para mover objetos de acceso infrecuente a niveles de almacenamiento de menor costo" },
+      { id: "d", text: "Usar despliegues Multi-AZ para Amazon RDS" },
+      { id: "e", text: "Reemplazar instancias existentes de Amazon EC2 con AWS Elastic Beanstalk" },
+    ],
+    correctAnswers: ["b", "c"],
+    explanation: {
+      correct:
+        "Seleccionar tipos de instancia EC2 basándose en patrones de utilización anteriores y usar políticas de ciclo de vida de S3 para mover objetos a almacenamiento más económico son estrategias de optimización de costos (right-sizing).",
+      whyOthersWrong: {
+        a: "Cambiar el tipo de base de datos no es right-sizing, es un cambio arquitectónico.",
+        d: "Multi-AZ mejora disponibilidad pero aumenta costos, no los reduce.",
+        e: "Migrar a Elastic Beanstalk no es right-sizing de recursos existentes.",
+      },
+    },
+    tags: ["rightsizing", "s3-lifecycle", "ec2", "costos"],
+  },
+  {
+    id: "clf-164",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa quiere generar una lista de usuarios de IAM. La empresa también quiere ver el estado de varias credenciales asociadas con los usuarios, como contraseñas, access keys y dispositivos MFA. ¿Qué servicio o característica de AWS cumple estos requisitos?",
+    options: [
+      { id: "a", text: "Informe de credenciales de IAM (IAM credential report)" },
+      { id: "b", text: "AWS IAM Identity Center (AWS Single Sign-On)" },
+      { id: "c", text: "AWS Identity and Access Management Access Analyzer" },
+      { id: "d", text: "AWS Cost and Usage Report" },
+    ],
+    correctAnswers: ["a"],
+    explanation: {
+      correct:
+        "El informe de credenciales de IAM es una característica que permite ver y descargar un informe que lista todos los usuarios de IAM en tu cuenta y el estado de sus credenciales, incluyendo contraseñas, access keys y dispositivos MFA.",
+      whyOthersWrong: {
+        b: "IAM Identity Center gestiona acceso SSO a múltiples cuentas, no genera informes de credenciales.",
+        c: "Access Analyzer identifica recursos compartidos externamente, no lista credenciales de usuarios.",
+        d: "Cost and Usage Report es para análisis de costos, no credenciales.",
+      },
+    },
+    tags: ["iam", "credential-report", "usuarios", "seguridad"],
+  },
+  {
+    id: "clf-165",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa necesita alojar un servidor web en instancias de Amazon EC2 por al menos 1 año. El servidor web no puede tolerar interrupciones. ¿Qué opción de compra de EC2 cumplirá estos requisitos de la manera más rentable?",
+    options: [
+      { id: "a", text: "Instancias bajo demanda (On-Demand)" },
+      { id: "b", text: "Instancias reservadas con pago parcial por adelantado" },
+      { id: "c", text: "Instancias Spot" },
+      { id: "d", text: "Instancias reservadas sin pago por adelantado" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "Las instancias reservadas con pago parcial por adelantado son la opción más rentable para cargas de trabajo predecibles que requieren operación continua por 1 año o más. Ofrecen descuentos significativos comparados con On-Demand.",
+      whyOthersWrong: {
+        a: "On-Demand son más caras y no ofrecen descuentos por compromiso a largo plazo.",
+        c: "Spot Instances pueden ser interrumpidas, no son adecuadas para cargas que no toleran interrupciones.",
+        d: "Sin pago por adelantado ofrece menor descuento que el pago parcial.",
+      },
+    },
+    tags: ["ec2", "reserved-instances", "costos", "compromiso"],
+  },
+  {
+    id: "clf-166",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Cuáles son capacidades de la perspectiva de plataforma del Marco de Adopción de la Nube de AWS (AWS CAF)? (Seleccione DOS)",
+    options: [
+      { id: "a", text: "Gestión de rendimiento y capacidad" },
+      { id: "b", text: "Ingeniería de datos" },
+      { id: "c", text: "Integración continua y entrega continua (CI/CD)" },
+      { id: "d", text: "Protección de infraestructura" },
+      { id: "e", text: "Gestión de cambios y lanzamientos" },
+    ],
+    correctAnswers: ["b", "c"],
+    explanation: {
+      correct:
+        "Ingeniería de datos y CI/CD son dos de las capacidades que están en la perspectiva de plataforma del AWS CAF. La perspectiva de plataforma ayuda a construir una plataforma de nube híbrida escalable y de nivel empresarial.",
+      whyOthersWrong: {
+        a: "La gestión de rendimiento y capacidad pertenece a la perspectiva de operaciones.",
+        d: "La protección de infraestructura pertenece a la perspectiva de seguridad.",
+        e: "La gestión de cambios y lanzamientos pertenece a la perspectiva de operaciones.",
+      },
+    },
+    tags: ["caf", "plataforma", "cicd", "ingenieria-datos"],
+  },
+  {
+    id: "clf-167",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-3",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa sospecha que sus recursos de AWS están siendo usados para actividades ilegales. ¿A qué grupo o equipo de AWS debe notificar la empresa?",
+    options: [
+      { id: "a", text: "AWS Abuse Team" },
+      { id: "b", text: "AWS Support Team" },
+      { id: "c", text: "AWS Technical Account Managers" },
+      { id: "d", text: "AWS Professional Services Team" },
+    ],
+    correctAnswers: ["a"],
+    explanation: {
+      correct:
+        "En caso de actividades ilegales sospechadas involucrando recursos de AWS, la empresa debe notificar al AWS Abuse Team. Este equipo maneja casos de abuso y actividades maliciosas en la plataforma de AWS.",
+      whyOthersWrong: {
+        b: "Support Team ayuda con problemas técnicos, no con casos de abuso.",
+        c: "TAMs asisten con optimización técnica y estratégica, no casos de abuso.",
+        d: "Professional Services ayuda con implementaciones, no con casos de abuso.",
+      },
+    },
+    tags: ["abuse-team", "seguridad", "actividades-ilegales", "reporte"],
   },
 ];
 

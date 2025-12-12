@@ -37,7 +37,8 @@ import {
 
 import { ExamConfig, ExamState, Question, ExamResult, QuestionResult } from "@/types";
 import { shuffleArray, formatTime, calculateScore, getScoreColor, generateId } from "@/lib/utils";
-import { saveExamResult } from "@/lib/storage";
+import { saveExamResult, calculateAchievements, Achievement } from "@/lib/storage";
+import { useToast } from "@/components/ui/toast";
 
 type SimulatorView = "config" | "exam" | "results";
 
@@ -46,8 +47,10 @@ export default function SimulatorPage() {
   const router = useRouter();
   const id = params.id as string;
   const { showModal } = useModal();
+  const { addToast } = useToast();
 
   const [view, setView] = useState<SimulatorView>("config");
+  const [newAchievements, setNewAchievements] = useState<Achievement[]>([]);
   const [config, setConfig] = useState<ExamConfig>({
     certificationId: id,
     mode: "exam",
@@ -222,13 +225,29 @@ export default function SimulatorPage() {
     // Save to localStorage
     saveExamResult(id, result);
 
+    // Check for new achievements
+    const achievements = calculateAchievements(id);
+    setNewAchievements(achievements.new);
+    
+    // Show toast for each new achievement
+    achievements.new.forEach((achievement, index) => {
+      setTimeout(() => {
+        addToast({
+          type: "success",
+          title: `🎉 ¡Logro desbloqueado!`,
+          message: `${achievement.icon} ${achievement.name}: ${achievement.description}`,
+          duration: 5000,
+        });
+      }, index * 1000); // Stagger toasts by 1 second
+    });
+
     setExamResult(result);
     setExamState((prev) => {
       if (!prev) return prev;
       return { ...prev, isFinished: true, endTime };
     });
     setView("results");
-  }, [examState, config, id]);
+  }, [examState, config, id, addToast]);
 
   const resetExam = () => {
     setView("config");
@@ -526,7 +545,7 @@ export default function SimulatorPage() {
                         <button
                           key={q.id}
                           onClick={() => goToQuestion(i)}
-                          className={`w-8 h-8 rounded-lg text-sm font-medium transition-all ${
+                          className={`w-8 h-8 rounded-lg text-sm font-medium transition-all cursor-pointer hover:ring-2 hover:ring-purple-400 hover:ring-offset-1 ${
                             isCurrent
                               ? "bg-purple-600 text-white"
                               : isAnswered
@@ -621,7 +640,7 @@ export default function SimulatorPage() {
                               key={option.id}
                               onClick={() => !showExplanation && selectAnswer(option.id)}
                               disabled={showExplanation}
-                              className={`w-full p-4 rounded-xl border-2 text-left transition-all flex items-start gap-3 ${
+                              className={`w-full p-4 rounded-xl border-2 text-left transition-all flex items-start gap-3 cursor-pointer disabled:cursor-default ${
                                 isCorrect
                                   ? "border-green-500 bg-green-50 dark:bg-green-900/20"
                                   : isWrong
@@ -823,6 +842,44 @@ export default function SimulatorPage() {
               </CardContent>
             </Card>
           </motion.div>
+
+          {/* New Achievements */}
+          {newAchievements.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 }}
+            >
+              <Card className="mb-6 bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 border-yellow-200 dark:border-yellow-800">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-yellow-700 dark:text-yellow-400">
+                    <span className="text-2xl">🎉</span>
+                    ¡Logros Desbloqueados!
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-4">
+                    {newAchievements.map((achievement) => (
+                      <div
+                        key={achievement.id}
+                        className="flex items-center gap-3 bg-white dark:bg-gray-800 rounded-xl p-3 shadow-sm"
+                      >
+                        <div className="text-3xl">{achievement.icon}</div>
+                        <div>
+                          <div className="font-semibold text-gray-900 dark:text-white">
+                            {achievement.name}
+                          </div>
+                          <div className="text-sm text-gray-500">
+                            {achievement.description}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          )}
 
           {/* Domain Breakdown */}
           <motion.div

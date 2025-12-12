@@ -887,6 +887,319 @@ export const domain2Questions: Question[] = [
     },
     tags: ["kms", "cifrado", "rds", "ebs"],
   },
+  {
+    id: "clf-113",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-2",
+    type: "single",
+    difficulty: "hard",
+    question:
+      "Un ingeniero de seguridad quiere una solución de AWS de un solo inquilino para crear, controlar y administrar sus propias claves criptográficas para cumplir con los requisitos regulatorios de seguridad de datos. ¿Qué servicio de AWS debe usar el ingeniero?",
+    options: [
+      { id: "a", text: "AWS Key Management Service (AWS KMS)" },
+      { id: "b", text: "AWS Certificate Manager (ACM)" },
+      { id: "c", text: "AWS CloudHSM" },
+      { id: "d", text: "AWS Systems Manager" },
+    ],
+    correctAnswers: ["c"],
+    explanation: {
+      correct:
+        "AWS CloudHSM proporciona módulos de seguridad de hardware (HSM) dedicados de un solo inquilino que permiten a los clientes crear, controlar y administrar sus propias claves criptográficas en la nube de AWS, cumpliendo con requisitos regulatorios estrictos.",
+      whyOthersWrong: {
+        a: "KMS es un servicio multi-inquilino gestionado por AWS. CloudHSM ofrece HSMs dedicados de un solo inquilino.",
+        b: "ACM gestiona certificados SSL/TLS, no es para administración de claves criptográficas dedicadas.",
+        d: "Systems Manager es para gestión de infraestructura y operaciones, no para administración de claves criptográficas.",
+      },
+    },
+    tags: ["cloudhsm", "hsm", "claves-criptograficas", "cumplimiento"],
+  },
+  {
+    id: "clf-114",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-2",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa está diseñando una solución de gestión de acceso e identidad para una aplicación. La empresa quiere que los usuarios puedan usar sus cuentas de redes sociales, correo electrónico o compras en línea para acceder a la aplicación. ¿Qué servicio de AWS proporciona esta funcionalidad?",
+    options: [
+      { id: "a", text: "AWS IAM Identity Center (AWS Single Sign-On)" },
+      { id: "b", text: "AWS Config" },
+      { id: "c", text: "Amazon Cognito" },
+      { id: "d", text: "AWS Identity and Access Management (IAM)" },
+    ],
+    correctAnswers: ["c"],
+    explanation: {
+      correct:
+        "Amazon Cognito proporciona identidad de usuario y autenticación para aplicaciones web y móviles. Permite a los usuarios iniciar sesión con proveedores de identidad federados como cuentas de redes sociales (Google, Facebook, Amazon), correo electrónico o proveedores SAML.",
+      whyOthersWrong: {
+        a: "IAM Identity Center es para SSO a cuentas AWS y aplicaciones empresariales, no para autenticación de usuarios finales de aplicaciones con redes sociales.",
+        b: "AWS Config rastrea configuraciones de recursos AWS, no gestiona autenticación de usuarios.",
+        d: "IAM gestiona acceso a recursos AWS, no autenticación de usuarios finales de aplicaciones con proveedores sociales.",
+      },
+    },
+    tags: ["cognito", "identidad-federada", "redes-sociales", "autenticacion"],
+  },
+  {
+    id: "clf-115",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-2",
+    type: "single",
+    difficulty: "easy",
+    question:
+      "¿Cuál de las siguientes es una característica del usuario raíz de la cuenta de AWS?",
+    options: [
+      { id: "a", text: "El usuario raíz es el único usuario que puede configurarse con autenticación multifactor (MFA)." },
+      { id: "b", text: "El usuario raíz es el único usuario que puede acceder a la Consola de administración de AWS." },
+      { id: "c", text: "El usuario raíz es la primera identidad de inicio de sesión disponible cuando se crea una cuenta de AWS y tiene permisos ilimitados." },
+      { id: "d", text: "El usuario raíz tiene una contraseña que no se puede cambiar." },
+    ],
+    correctAnswers: ["c"],
+    explanation: {
+      correct:
+        "El usuario raíz de la cuenta de AWS es la primera identidad de inicio de sesión disponible cuando se crea una cuenta de AWS. Tiene acceso completo y sin restricciones a todos los servicios y recursos de AWS en la cuenta.",
+      whyOthersWrong: {
+        a: "Cualquier usuario IAM puede configurar MFA, no solo el usuario raíz.",
+        b: "Cualquier usuario IAM con permisos adecuados puede acceder a la Consola de administración de AWS.",
+        d: "La contraseña del usuario raíz sí se puede cambiar desde la configuración de seguridad de la cuenta.",
+      },
+    },
+    tags: ["root-account", "identidad", "cuenta-aws"],
+  },
+  {
+    id: "clf-116",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-2",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué servicio de AWS puede usar un usuario para identificar cualquier grupo de seguridad que permita tráfico SSH entrante sin restricciones?",
+    options: [
+      { id: "a", text: "Amazon Cognito" },
+      { id: "b", text: "AWS Shield" },
+      { id: "c", text: "Amazon Macie" },
+      { id: "d", text: "AWS Trusted Advisor" },
+    ],
+    correctAnswers: ["d"],
+    explanation: {
+      correct:
+        "AWS Trusted Advisor inspecciona el entorno de AWS e identifica grupos de seguridad que permiten acceso sin restricciones a puertos específicos como el puerto 22 (SSH). Esta verificación ayuda a revisar y modificar las reglas para restringir el acceso solo a fuentes autorizadas.",
+      whyOthersWrong: {
+        a: "Cognito gestiona identidad de usuarios para aplicaciones, no analiza configuraciones de grupos de seguridad.",
+        b: "Shield protege contra ataques DDoS, no analiza configuraciones de grupos de seguridad.",
+        c: "Macie descubre datos sensibles en S3, no analiza configuraciones de grupos de seguridad.",
+      },
+    },
+    tags: ["trusted-advisor", "security-groups", "ssh", "mejores-practicas"],
+  },
+  {
+    id: "clf-117",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-2",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa quiere usar la nube de AWS para administrar el acceso y los permisos para sus aplicaciones de Software como servicio (SaaS) de terceros. La empresa quiere usar un portal donde los usuarios finales puedan acceder a las cuentas de AWS y aplicaciones asignadas en la nube. ¿Qué servicio de AWS debe usar?",
+    options: [
+      { id: "a", text: "Amazon Cognito" },
+      { id: "b", text: "AWS IAM Identity Center (AWS Single Sign-On)" },
+      { id: "c", text: "AWS Identity and Access Management (IAM)" },
+      { id: "d", text: "AWS Directory Service para Microsoft Active Directory" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "AWS IAM Identity Center (antes AWS Single Sign-On) facilita la administración centralizada del acceso SSO a múltiples cuentas de AWS y aplicaciones empresariales. Proporciona un portal donde los usuarios pueden acceder a todas sus cuentas y aplicaciones asignadas desde un solo lugar.",
+      whyOthersWrong: {
+        a: "Cognito es para autenticación de usuarios finales de aplicaciones web/móviles, no para SSO a aplicaciones SaaS empresariales.",
+        c: "IAM gestiona permisos a recursos AWS, pero no proporciona un portal SSO para aplicaciones SaaS de terceros.",
+        d: "Directory Service proporciona directorios gestionados, pero IAM Identity Center es la solución para SSO centralizado.",
+      },
+    },
+    tags: ["iam-identity-center", "sso", "saas", "portal"],
+  },
+  {
+    id: "clf-168",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-2",
+    type: "multiple",
+    difficulty: "medium",
+    question:
+      "¿Cuáles de los siguientes servicios o características de AWS permiten la notación de bloque CIDR al proporcionar un rango de direcciones IP? (Seleccione DOS)",
+    options: [
+      { id: "a", text: "Grupos de seguridad" },
+      { id: "b", text: "Amazon Machine Image (AMI)" },
+      { id: "c", text: "Lista de control de acceso de red (ACL de red)" },
+      { id: "d", text: "AWS Budgets" },
+      { id: "e", text: "Amazon Elastic Block Store (Amazon EBS)" },
+    ],
+    correctAnswers: ["a", "c"],
+    explanation: {
+      correct:
+        "Los grupos de seguridad y las listas de control de acceso de red (ACL de red) usan notación de bloque CIDR para especificar rangos de direcciones IP permitidos o denegados. Los Security Groups operan a nivel de instancia y las Network ACLs a nivel de subred.",
+      whyOthersWrong: {
+        b: "Las AMIs son plantillas de máquinas virtuales, no utilizan notación CIDR.",
+        d: "AWS Budgets es para gestión de costos, no para configuración de red.",
+        e: "Amazon EBS es almacenamiento en bloque, no utiliza notación CIDR.",
+      },
+    },
+    tags: ["security-groups", "network-acl", "cidr", "vpc"],
+  },
+  {
+    id: "clf-169",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-2",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa quiere administrar centralmente las políticas de seguridad y los servicios de facturación en un entorno AWS de múltiples cuentas. ¿Qué servicio de AWS debe usar la empresa para cumplir estos requisitos?",
+    options: [
+      { id: "a", text: "AWS Identity and Access Management (IAM)" },
+      { id: "b", text: "AWS Organizations" },
+      { id: "c", text: "AWS Resource Access Manager (AWS RAM)" },
+      { id: "d", text: "AWS Config" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "AWS Organizations permite consolidar múltiples cuentas AWS en una organización administrada centralmente. Permite crear grupos de cuentas y aplicar políticas de control de servicio (SCP) que especifican qué servicios y acciones pueden usar los usuarios. También ofrece facturación consolidada.",
+      whyOthersWrong: {
+        a: "IAM gestiona permisos dentro de una cuenta, no administra múltiples cuentas centralmente.",
+        c: "RAM permite compartir recursos entre cuentas, pero no gestiona políticas de seguridad centralizadas ni facturación.",
+        d: "Config rastrea configuraciones de recursos, no gestiona políticas de seguridad multi-cuenta ni facturación.",
+      },
+    },
+    tags: ["organizations", "scp", "multi-cuenta", "facturacion-consolidada"],
+  },
+  {
+    id: "clf-120",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-2",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué tarea es responsabilidad del cliente según el Modelo de Responsabilidad Compartida de AWS?",
+    options: [
+      { id: "a", text: "Administrar sistemas operativos invitados" },
+      { id: "b", text: "Mantener la configuración de dispositivos de infraestructura" },
+      { id: "c", text: "Administrar sistemas operativos host y virtualización" },
+      { id: "d", text: "Mantener el software que alimenta las zonas de disponibilidad" },
+    ],
+    correctAnswers: ["a"],
+    explanation: {
+      correct:
+        "Administrar sistemas operativos invitados (guest OS) es responsabilidad del cliente. El cliente debe aplicar parches, actualizaciones y configurar el sistema operativo que corre dentro de sus instancias EC2.",
+      whyOthersWrong: {
+        b: "La configuración de dispositivos de infraestructura física (routers, switches) es responsabilidad de AWS.",
+        c: "Los sistemas operativos host y la capa de virtualización (hipervisor) son responsabilidad de AWS.",
+        d: "El software que opera las zonas de disponibilidad es infraestructura de AWS, no del cliente.",
+      },
+    },
+    tags: ["responsabilidad-compartida", "guest-os", "cliente"],
+  },
+  {
+    id: "clf-121",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-2",
+    type: "single",
+    difficulty: "hard",
+    question:
+      "Cuando un usuario quiere usar sus propias licencias de software por socket, por núcleo o por VM para un servidor Microsoft Windows que se ejecuta en AWS, ¿qué tipo de instancia de Amazon EC2 se requiere?",
+    options: [
+      { id: "a", text: "Instancias Spot" },
+      { id: "b", text: "Instancias dedicadas" },
+      { id: "c", text: "Hosts dedicados" },
+      { id: "d", text: "Instancias reservadas" },
+    ],
+    correctAnswers: ["c"],
+    explanation: {
+      correct:
+        "Los Hosts dedicados son servidores físicos dedicados a un solo cliente que permiten usar licencias de software existentes vinculadas al servidor (BYOL - Bring Your Own License) basadas en socket, núcleo o VM, cumpliendo con los términos de licenciamiento de Microsoft.",
+      whyOthersWrong: {
+        a: "Las Instancias Spot son para cargas de trabajo tolerantes a interrupciones, no para cumplimiento de licencias.",
+        b: "Las Instancias dedicadas corren en hardware dedicado pero no proporcionan visibilidad de sockets/núcleos para licenciamiento.",
+        d: "Las Instancias reservadas son un modelo de precios, no un tipo de tenencia que permita BYOL.",
+      },
+    },
+    tags: ["hosts-dedicados", "byol", "licencias", "compliance"],
+  },
+  {
+    id: "clf-122",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-2",
+    type: "single",
+    difficulty: "easy",
+    question:
+      "En el Modelo de Responsabilidad Compartida de AWS, ¿a qué se refiere 'seguridad DE la nube'?",
+    options: [
+      { id: "a", text: "Disponibilidad de servicios de AWS" },
+      { id: "b", text: "Seguridad de la infraestructura que ejecuta los servicios de AWS" },
+      { id: "c", text: "Políticas de contraseñas para usuarios de IAM" },
+      { id: "d", text: "Seguridad de los datos del cliente" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "'Seguridad DE la nube' se refiere a la responsabilidad de AWS de proteger la infraestructura que ejecuta todos los servicios de AWS, incluyendo hardware, software, redes e instalaciones físicas de los data centers.",
+      whyOthersWrong: {
+        a: "La disponibilidad de servicios es parte de la confiabilidad, no define específicamente 'seguridad DE la nube'.",
+        c: "Las políticas de contraseñas IAM son responsabilidad del cliente ('seguridad EN la nube').",
+        d: "La seguridad de los datos del cliente es responsabilidad del cliente ('seguridad EN la nube').",
+      },
+    },
+    tags: ["responsabilidad-compartida", "seguridad-de-la-nube", "aws"],
+  },
+  {
+    id: "clf-123",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-2",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa tiene equipos con diferentes funciones y responsabilidades. Los empleados cambian de equipo frecuentemente. La empresa necesita gestionar los permisos de los empleados de forma apropiada para sus responsabilidades. ¿Qué característica de IAM debe usar la empresa con la MENOR sobrecarga operativa?",
+    options: [
+      { id: "a", text: "Grupos de usuarios IAM" },
+      { id: "b", text: "Roles IAM" },
+      { id: "c", text: "Perfiles de instancia IAM" },
+      { id: "d", text: "Políticas IAM para usuarios individuales" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "Los roles IAM permiten otorgar permisos temporales a entidades sin crear credenciales permanentes. Cuando los empleados cambian de equipo, pueden asumir diferentes roles según su nueva función, minimizando la sobrecarga de gestionar permisos individuales.",
+      whyOthersWrong: {
+        a: "Los grupos requieren agregar/quitar usuarios manualmente cuando cambian de equipo, generando más sobrecarga.",
+        c: "Los perfiles de instancia son para que las instancias EC2 asuman roles, no para gestionar permisos de empleados.",
+        d: "Las políticas individuales requieren modificar cada usuario cuando cambia de equipo, máxima sobrecarga operativa.",
+      },
+    },
+    tags: ["iam", "roles", "permisos", "mejores-practicas"],
+  },
+  {
+    id: "clf-124",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-2",
+    type: "single",
+    difficulty: "easy",
+    question:
+      "Una empresa necesita controlar el tráfico entrante y saliente hacia una instancia de Amazon EC2. ¿Qué servicio o característica de AWS puede asociar la empresa con la instancia EC2 para cumplir este requisito?",
+    options: [
+      { id: "a", text: "Network ACL" },
+      { id: "b", text: "Security group" },
+      { id: "c", text: "AWS WAF" },
+      { id: "d", text: "Tablas de enrutamiento de VPC" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "Un Security Group es un firewall virtual que se asocia con instancias EC2 para controlar el tráfico entrante y saliente. Permite especificar qué protocolos, puertos y rangos de IP de origen o destino están permitidos.",
+      whyOthersWrong: {
+        a: "Las Network ACLs operan a nivel de subred, no se asocian directamente con instancias EC2 individuales.",
+        c: "AWS WAF protege aplicaciones web contra ataques de capa 7, no controla tráfico general de instancias EC2.",
+        d: "Las tablas de enrutamiento dirigen el tráfico entre subredes/internet, no filtran tráfico por instancia.",
+      },
+    },
+    tags: ["security-groups", "ec2", "firewall", "vpc"],
+  },
 ];
 
 export default domain2Questions;

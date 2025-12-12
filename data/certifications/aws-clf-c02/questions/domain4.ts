@@ -682,7 +682,7 @@ export const domain4Questions: Question[] = [
     tags: ["enterprise-support", "tam", "technical-account-manager", "soporte"],
   },
   {
-    id: "clf-118",
+    id: "clf-170",
     certificationId: "aws-clf-c02",
     domainId: "domain-4",
     type: "single",

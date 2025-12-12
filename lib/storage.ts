@@ -184,6 +184,76 @@ export function getStreak(): { current: number; longest: number } {
 // ACHIEVEMENTS
 // ============================================
 
+export interface Achievement {
+  id: string;
+  name: string;
+  icon: string;
+  description: string;
+}
+
+export const ACHIEVEMENTS: Achievement[] = [
+  { id: "first-exam", name: "Primer Paso", icon: "🎯", description: "Completa tu primer examen" },
+  { id: "five-exams", name: "En Camino", icon: "🚀", description: "Completa 5 exámenes" },
+  { id: "ten-exams", name: "Dedicado", icon: "💪", description: "Completa 10 exámenes" },
+  { id: "first-pass", name: "Victoria", icon: "🏆", description: "Aprueba un examen (700+)" },
+  { id: "perfect-score", name: "Perfección", icon: "⭐", description: "Obtén 1000 puntos" },
+  { id: "streak-3", name: "Consistente", icon: "🔥", description: "3 días de racha" },
+  { id: "streak-7", name: "Imparable", icon: "⚡", description: "7 días de racha" },
+  { id: "all-domains", name: "Explorador", icon: "🗺️", description: "Practica todos los dominios" },
+];
+
+// Calculate which achievements should be unlocked based on data
+export function calculateAchievements(
+  certId: string
+): { all: string[]; new: Achievement[] } {
+  const progress = getProgress();
+  const certProgress = getCertificationProgress(certId);
+  const examHistory = certProgress.examHistory;
+  const streak = getStreak();
+  const previouslyUnlocked = progress.achievements || [];
+  
+  const shouldBeUnlocked: string[] = [];
+  
+  // Exam count achievements
+  if (examHistory.length >= 1) shouldBeUnlocked.push("first-exam");
+  if (examHistory.length >= 5) shouldBeUnlocked.push("five-exams");
+  if (examHistory.length >= 10) shouldBeUnlocked.push("ten-exams");
+  
+  // Score achievements
+  if (examHistory.some(e => e.score >= 700)) shouldBeUnlocked.push("first-pass");
+  if (examHistory.some(e => e.score >= 1000)) shouldBeUnlocked.push("perfect-score");
+  
+  // Streak achievements (use longest streak)
+  if (streak.longest >= 3) shouldBeUnlocked.push("streak-3");
+  if (streak.longest >= 7) shouldBeUnlocked.push("streak-7");
+  
+  // All domains achievement
+  const domainsWithQuestions = new Set<string>();
+  examHistory.forEach(exam => {
+    Object.keys(exam.domainScores || {}).forEach(domainId => {
+      if (exam.domainScores[domainId]?.total > 0) {
+        domainsWithQuestions.add(domainId);
+      }
+    });
+  });
+  if (domainsWithQuestions.size >= 4) shouldBeUnlocked.push("all-domains");
+  
+  // Find newly unlocked achievements
+  const newlyUnlocked = shouldBeUnlocked.filter(id => !previouslyUnlocked.includes(id));
+  const newAchievements = ACHIEVEMENTS.filter(a => newlyUnlocked.includes(a.id));
+  
+  // Save newly unlocked achievements
+  if (newlyUnlocked.length > 0) {
+    progress.achievements = [...new Set([...previouslyUnlocked, ...shouldBeUnlocked])];
+    saveProgress(progress);
+  }
+  
+  return {
+    all: shouldBeUnlocked,
+    new: newAchievements,
+  };
+}
+
 export function unlockAchievement(achievementId: string): void {
   const progress = getProgress();
   if (!progress.achievements.includes(achievementId)) {
