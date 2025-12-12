@@ -297,7 +297,7 @@ export default function HomePage() {
                     <CardContent className="text-center">
                       {cert.available ? (
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                          {cert.questions}+ preguntas de práctica
+                          {cert.questions} preguntas de práctica
                         </p>
                       ) : (
                         <p className="text-sm text-gray-500 dark:text-gray-400">Próximamente</p>

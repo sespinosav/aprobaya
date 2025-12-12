@@ -12,16 +12,26 @@ import {
   ArrowRight,
   Award,
   BarChart3,
+  RotateCcw,
+  AlertTriangle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { getProgress, getStreak } from "@/lib/storage";
+import { getProgress, getStreak, resetProgress } from "@/lib/storage";
 
 export default function ProgressPage() {
   const [streak, setStreak] = useState<{ current: number; longest: number }>({ current: 0, longest: 0 });
   const [hasProgress, setHasProgress] = useState(false);
+  const [showResetModal, setShowResetModal] = useState(false);
+
+  const handleResetProgress = () => {
+    resetProgress();
+    setStreak({ current: 0, longest: 0 });
+    setHasProgress(false);
+    setShowResetModal(false);
+  };
 
   useEffect(() => {
     const streakData = getStreak();
@@ -180,7 +190,89 @@ export default function ProgressPage() {
             ))}
           </div>
         </motion.div>
+
+        {/* Reset Progress Section */}
+        {hasProgress && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800"
+          >
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div>
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white">Reiniciar Progreso</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Elimina todo tu historial de exámenes, rachas y logros.
+                </p>
+              </div>
+              <Button
+                variant="outline"
+                className="text-red-600 border-red-200 hover:bg-red-50 dark:border-red-900 dark:hover:bg-red-900/30"
+                onClick={() => setShowResetModal(true)}
+              >
+                <RotateCcw className="h-4 w-4" />
+                Reiniciar Todo
+              </Button>
+            </div>
+          </motion.div>
+        )}
       </div>
+
+      {/* Reset Confirmation Modal */}
+      {showResetModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="w-full max-w-md"
+          >
+            <Card className="border-red-200 dark:border-red-900">
+              <CardContent className="pt-6">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
+                    <AlertTriangle className="h-6 w-6 text-red-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      ¿Reiniciar todo el progreso?
+                    </h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      Esta acción no se puede deshacer.
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 mb-6">
+                  Se eliminarán permanentemente:
+                </p>
+                <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-1 mb-6 ml-4">
+                  <li>• Historial de exámenes</li>
+                  <li>• Racha actual y récords</li>
+                  <li>• Logros desbloqueados</li>
+                  <li>• Estadísticas de preguntas</li>
+                </ul>
+                <div className="flex gap-3">
+                  <Button
+                    variant="outline"
+                    className="flex-1"
+                    onClick={() => setShowResetModal(false)}
+                  >
+                    Cancelar
+                  </Button>
+                  <Button
+                    variant="destructive"
+                    className="flex-1"
+                    onClick={handleResetProgress}
+                  >
+                    <RotateCcw className="h-4 w-4" />
+                    Sí, reiniciar
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 }

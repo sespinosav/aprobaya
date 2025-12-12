@@ -58,7 +58,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es" className="dark" suppressHydrationWarning>
+      <head>
+        {/* Critical CSS to prevent flash of light theme */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              html.dark { background-color: #0f0b1a; }
+              html:not(.dark) { background-color: #f8fafc; }
+            `,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const theme = localStorage.getItem('theme');
+                if (theme === 'light') {
+                  document.documentElement.classList.remove('dark');
+                } else {
+                  document.documentElement.classList.add('dark');
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${inter.variable} antialiased bg-mesh min-h-screen flex flex-col`}
       >

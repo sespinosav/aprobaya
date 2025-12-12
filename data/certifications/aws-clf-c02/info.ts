@@ -63,7 +63,7 @@ export const awsCloudPractitionerInfo: Certification = {
     },
   ],
   totalQuestions: 200,
-  lastUpdated: "2025-01-15",
+  lastUpdated: "2025-12-11",
   version: "1.0.0",
   contributors: ["AprobaYa Community"],
 };

@@ -599,7 +599,7 @@ export const services: AWSService[] = [
       "Centralización de logs",
       "Alertas operacionales",
     ],
-    pricing: "Métricas básicas gratis; pago por métricas, logs, alarmas adicionales",
+    pricing: "Métricas básicas gratis; pago por métricas, logs, alarmas +",
   },
   {
     id: "cloudformation",
@@ -639,7 +639,7 @@ export const services: AWSService[] = [
       "Investigación de incidentes",
       "Cumplimiento normativo",
     ],
-    pricing: "Primera copia de eventos gratis; costos por trails adicionales",
+    pricing: "Primera copia de eventos gratis; costos por trails +",
   },
   {
     id: "aws-config",
@@ -1068,6 +1068,533 @@ export const services: AWSService[] = [
       "Análisis de datos en otros idiomas",
     ],
     pricing: "Pago por carácter traducido",
+  },
+  // Cloud Economics & Pricing
+  {
+    id: "aws-pricing-calculator",
+    name: "AWS Pricing Calculator",
+    category: "Cloud Financial Management",
+    description:
+      "Herramienta web para estimar costos de servicios AWS antes de desplegar.",
+    keyFeatures: [
+      "Estimaciones detalladas por servicio",
+      "Comparación de escenarios",
+      "Exportar y compartir estimaciones",
+      "Incluye todos los servicios AWS",
+    ],
+    useCases: [
+      "Planificación de presupuesto",
+      "Comparación de arquitecturas",
+      "Propuestas a clientes",
+    ],
+    pricing: "Gratuito",
+  },
+  {
+    id: "aws-tco-calculator",
+    name: "AWS TCO Calculator",
+    category: "Cloud Financial Management",
+    description:
+      "Calculadora de Costo Total de Propiedad para comparar costos on-premises vs AWS.",
+    keyFeatures: [
+      "Comparación on-premises vs cloud",
+      "Incluye costos ocultos",
+      "Análisis de 3 años",
+      "Reportes ejecutivos",
+    ],
+    useCases: [
+      "Justificación de migración a cloud",
+      "Análisis de ROI",
+      "Presentaciones a ejecutivos",
+    ],
+    pricing: "Gratuito",
+  },
+  {
+    id: "cost-explorer",
+    name: "AWS Cost Explorer",
+    category: "Cloud Financial Management",
+    description:
+      "Herramienta para visualizar, entender y gestionar costos de AWS.",
+    keyFeatures: [
+      "Gráficos de costos por servicio/cuenta",
+      "Pronósticos de gastos",
+      "Recomendaciones de ahorro",
+      "Filtros y agrupaciones personalizadas",
+      "API para automatización",
+    ],
+    useCases: [
+      "Monitoreo de gastos",
+      "Identificar oportunidades de ahorro",
+      "Análisis de tendencias",
+    ],
+    pricing: "Gratuito (API tiene costo por solicitud)",
+  },
+  {
+    id: "aws-budgets",
+    name: "AWS Budgets",
+    category: "Cloud Financial Management",
+    description:
+      "Servicio para crear presupuestos y recibir alertas cuando se excedan.",
+    keyFeatures: [
+      "Presupuestos de costo, uso y reservas",
+      "Alertas por email y SNS",
+      "Acciones automáticas al exceder",
+      "Integración con AWS Cost Explorer",
+    ],
+    useCases: [
+      "Control de gastos",
+      "Alertas proactivas",
+      "Gobierno de costos",
+    ],
+    pricing: "Primeros 2 presupuestos gratis, luego $0.02/día",
+  },
+  {
+    id: "billing",
+    name: "AWS Billing and Cost Management",
+    category: "Cloud Financial Management",
+    description:
+      "Consola centralizada para gestionar facturación y pagos de AWS.",
+    keyFeatures: [
+      "Facturas detalladas",
+      "Métodos de pago",
+      "Créditos y cupones",
+      "Consolidated Billing para Organizations",
+    ],
+    useCases: [
+      "Gestión de facturas",
+      "Configuración de pagos",
+      "Facturación consolidada multi-cuenta",
+    ],
+    pricing: "Gratuito",
+  },
+  // Infrastructure
+  {
+    id: "aws-global-infrastructure",
+    name: "AWS Global Infrastructure",
+    category: "Infrastructure",
+    description:
+      "La infraestructura física global de AWS: Regiones, Zonas de Disponibilidad y Edge Locations.",
+    keyFeatures: [
+      "30+ Regiones geográficas",
+      "99 Zonas de Disponibilidad",
+      "400+ Edge Locations para CloudFront",
+      "Local Zones y Wavelength",
+      "Alta disponibilidad y redundancia",
+    ],
+    useCases: [
+      "Despliegue global de aplicaciones",
+      "Cumplimiento de residencia de datos",
+      "Baja latencia para usuarios finales",
+    ],
+    pricing: "N/A - Es la infraestructura base",
+  },
+  {
+    id: "aws-outposts",
+    name: "AWS Outposts",
+    category: "Hybrid Cloud",
+    description:
+      "Infraestructura y servicios AWS completamente administrados en tu data center.",
+    keyFeatures: [
+      "Hardware AWS en tu ubicación",
+      "Mismas APIs y herramientas de AWS",
+      "Baja latencia para cargas locales",
+      "Rack completo o servidores individuales",
+    ],
+    useCases: [
+      "Aplicaciones con requisitos de latencia",
+      "Residencia de datos local",
+      "Migración gradual a cloud",
+    ],
+    pricing: "Modelo de suscripción de 3 años",
+  },
+  // Security & Compliance
+  {
+    id: "aws-artifact",
+    name: "AWS Artifact",
+    category: "Security",
+    description:
+      "Portal de autoservicio para acceder a informes de cumplimiento y acuerdos de AWS.",
+    keyFeatures: [
+      "Informes SOC, PCI, ISO",
+      "Business Associate Addendum (BAA)",
+      "Acuerdos de confidencialidad",
+      "Descarga bajo demanda",
+    ],
+    useCases: [
+      "Auditorías de cumplimiento",
+      "Requisitos regulatorios",
+      "Due diligence",
+    ],
+    pricing: "Gratuito",
+  },
+  {
+    id: "aws-sso",
+    name: "AWS IAM Identity Center",
+    shortName: "IAM Identity Center (SSO)",
+    category: "Security",
+    description:
+      "Gestión centralizada de acceso SSO a múltiples cuentas AWS y aplicaciones.",
+    keyFeatures: [
+      "Single Sign-On para cuentas AWS",
+      "Integración con directorios externos (AD, Okta)",
+      "Asignación de permisos centralizada",
+      "Portal de usuario para acceso",
+    ],
+    useCases: [
+      "Acceso multi-cuenta",
+      "Federación de identidades",
+      "Simplificar acceso de usuarios",
+    ],
+    pricing: "Gratuito",
+  },
+  {
+    id: "inspector",
+    name: "Amazon Inspector",
+    category: "Security",
+    description:
+      "Servicio de evaluación de seguridad automatizada para EC2 y contenedores.",
+    keyFeatures: [
+      "Escaneo continuo de vulnerabilidades",
+      "Análisis de configuración de red",
+      "Integración con ECR para imágenes",
+      "Puntuación de riesgo",
+    ],
+    useCases: [
+      "Evaluación de seguridad",
+      "Cumplimiento de parches",
+      "Pipeline de CI/CD seguro",
+    ],
+    pricing: "Pago por instancia/imagen escaneada",
+  },
+  {
+    id: "macie",
+    name: "Amazon Macie",
+    category: "Security",
+    description:
+      "Servicio de seguridad que usa ML para descubrir y proteger datos sensibles en S3.",
+    keyFeatures: [
+      "Descubrimiento automático de datos sensibles",
+      "Detección de PII, PHI, credenciales",
+      "Alertas de acceso anómalo",
+      "Dashboard de seguridad de datos",
+    ],
+    useCases: [
+      "Protección de datos personales",
+      "Cumplimiento GDPR/HIPAA",
+      "Auditoría de datos en S3",
+    ],
+    pricing: "Pago por GB escaneado",
+  },
+  {
+    id: "security-hub",
+    name: "AWS Security Hub",
+    category: "Security",
+    description:
+      "Vista centralizada de alertas de seguridad y estado de cumplimiento.",
+    keyFeatures: [
+      "Agregación de findings de múltiples servicios",
+      "Estándares de seguridad (CIS, PCI-DSS)",
+      "Puntuación de seguridad",
+      "Automatización con EventBridge",
+    ],
+    useCases: [
+      "Gestión centralizada de seguridad",
+      "Cumplimiento continuo",
+      "Priorización de remediación",
+    ],
+    pricing: "Pago por checks y findings",
+  },
+  {
+    id: "secrets-manager",
+    name: "AWS Secrets Manager",
+    category: "Security",
+    description:
+      "Servicio para almacenar, rotar y gestionar secretos (contraseñas, API keys).",
+    keyFeatures: [
+      "Rotación automática de credenciales",
+      "Integración nativa con RDS",
+      "Cifrado con KMS",
+      "Acceso vía API/SDK",
+    ],
+    useCases: [
+      "Gestión de contraseñas de BD",
+      "API keys y tokens",
+      "Credenciales de aplicaciones",
+    ],
+    pricing: "$0.40/secreto/mes + $0.05 por 10K llamadas",
+  },
+  {
+    id: "control-tower",
+    name: "AWS Control Tower",
+    category: "Management",
+    description:
+      "Servicio para configurar y gobernar un entorno multi-cuenta seguro.",
+    keyFeatures: [
+      "Landing Zone automatizada",
+      "Guardrails (preventivos y detectivos)",
+      "Account Factory para crear cuentas",
+      "Dashboard de cumplimiento",
+    ],
+    useCases: [
+      "Configuración inicial de AWS",
+      "Gobierno multi-cuenta",
+      "Cumplimiento empresarial",
+    ],
+    pricing: "Sin costo adicional (pagas servicios subyacentes)",
+  },
+  // Compute +
+  {
+    id: "batch",
+    name: "AWS Batch",
+    category: "Compute",
+    description:
+      "Servicio para ejecutar trabajos de procesamiento por lotes a cualquier escala.",
+    keyFeatures: [
+      "Provisión automática de recursos",
+      "Colas de trabajos con prioridades",
+      "Integración con Spot Instances",
+      "Soporte para contenedores",
+    ],
+    useCases: [
+      "Procesamiento de datos masivo",
+      "Renderizado de video",
+      "Simulaciones científicas",
+    ],
+    pricing: "Sin costo adicional (pagas EC2/Fargate)",
+  },
+  // Storage +
+  {
+    id: "fsx",
+    name: "Amazon FSx",
+    category: "Storage",
+    description:
+      "Sistemas de archivos completamente administrados (Windows, Lustre, NetApp, OpenZFS).",
+    keyFeatures: [
+      "FSx for Windows File Server",
+      "FSx for Lustre (HPC)",
+      "FSx for NetApp ONTAP",
+      "FSx for OpenZFS",
+    ],
+    useCases: [
+      "Aplicaciones Windows",
+      "Machine Learning/HPC",
+      "Migración de NAS",
+    ],
+    pricing: "Pago por GB-mes y throughput",
+  },
+  // Database +
+  {
+    id: "documentdb",
+    name: "Amazon DocumentDB",
+    category: "Database",
+    description:
+      "Base de datos de documentos compatible con MongoDB, completamente administrada.",
+    keyFeatures: [
+      "Compatible con MongoDB",
+      "Escalado automático de almacenamiento",
+      "Alta disponibilidad con replicación",
+      "Backups automáticos",
+    ],
+    useCases: [
+      "Aplicaciones con MongoDB",
+      "Catálogos de productos",
+      "Gestión de contenido",
+    ],
+    pricing: "Pago por instancia + almacenamiento + I/O",
+  },
+  {
+    id: "neptune",
+    name: "Amazon Neptune",
+    category: "Database",
+    description:
+      "Base de datos de grafos completamente administrada.",
+    keyFeatures: [
+      "Soporta Property Graph y RDF",
+      "Consultas Gremlin y SPARQL",
+      "Alta disponibilidad",
+      "Replicación de lectura",
+    ],
+    useCases: [
+      "Redes sociales",
+      "Detección de fraude",
+      "Grafos de conocimiento",
+    ],
+    pricing: "Pago por instancia + almacenamiento + I/O",
+  },
+  // Networking +
+  {
+    id: "global-accelerator",
+    name: "AWS Global Accelerator",
+    category: "Networking",
+    description:
+      "Servicio que mejora disponibilidad y rendimiento usando la red global de AWS.",
+    keyFeatures: [
+      "IPs anycast estáticas",
+      "Enrutamiento inteligente por red AWS",
+      "Health checks y failover",
+      "Protección DDoS incluida",
+    ],
+    useCases: [
+      "Aplicaciones globales",
+      "Gaming y streaming",
+      "Failover multi-región",
+    ],
+    pricing: "Pago por hora + datos transferidos",
+  },
+  {
+    id: "vpn",
+    name: "AWS VPN",
+    category: "Networking",
+    description:
+      "Conexiones VPN seguras entre tu red y AWS.",
+    keyFeatures: [
+      "Site-to-Site VPN para conectar data centers",
+      "Client VPN para usuarios remotos",
+      "IPsec cifrado",
+      "Alta disponibilidad con túneles redundantes",
+    ],
+    useCases: [
+      "Conectividad híbrida",
+      "Acceso remoto seguro",
+      "Backup de Direct Connect",
+    ],
+    pricing: "Pago por hora de conexión + datos",
+  },
+  // Management & Governance +
+  {
+    id: "systems-manager",
+    name: "AWS Systems Manager",
+    category: "Management",
+    description:
+      "Suite de herramientas para gestionar recursos AWS y on-premises.",
+    keyFeatures: [
+      "Session Manager: acceso shell sin SSH",
+      "Patch Manager: gestión de parches",
+      "Parameter Store: almacén de configuración",
+      "Run Command: ejecución remota",
+      "Automation: runbooks automatizados",
+    ],
+    useCases: [
+      "Gestión de flotas de servidores",
+      "Automatización de operaciones",
+      "Gestión de configuración",
+    ],
+    pricing: "Muchas funciones gratuitas; algunas avanzadas tienen costo",
+  },
+  {
+    id: "auto-scaling",
+    name: "AWS Auto Scaling",
+    category: "Management",
+    description:
+      "Servicio para escalar automáticamente recursos según demanda.",
+    keyFeatures: [
+      "Escalado de EC2, ECS, DynamoDB, Aurora",
+      "Políticas basadas en métricas",
+      "Escalado predictivo con ML",
+      "Planes de escalado unificados",
+    ],
+    useCases: [
+      "Mantener disponibilidad",
+      "Optimizar costos",
+      "Manejar picos de tráfico",
+    ],
+    pricing: "Gratuito (pagas por recursos +)",
+  },
+  {
+    id: "x-ray",
+    name: "AWS X-Ray",
+    category: "Developer Tools",
+    description:
+      "Servicio para analizar y depurar aplicaciones distribuidas.",
+    keyFeatures: [
+      "Trazas de solicitudes end-to-end",
+      "Mapa de servicios visual",
+      "Identificación de cuellos de botella",
+      "Integración con Lambda, ECS, EC2",
+    ],
+    useCases: [
+      "Debug de microservicios",
+      "Análisis de rendimiento",
+      "Identificar errores",
+    ],
+    pricing: "Primeras 100K trazas gratis, luego $5/millón",
+  },
+  {
+    id: "aws-well-architected-tool",
+    name: "AWS Well-Architected Tool",
+    category: "Management",
+    description:
+      "Herramienta para revisar arquitecturas según las mejores prácticas del Well-Architected Framework.",
+    keyFeatures: [
+      "Evaluación de los 6 pilares",
+      "Identificación de riesgos",
+      "Recomendaciones de mejora",
+      "Seguimiento de progreso",
+    ],
+    useCases: [
+      "Revisión de arquitecturas",
+      "Mejora continua",
+      "Preparación para producción",
+    ],
+    pricing: "Gratuito",
+  },
+  // Support
+  {
+    id: "aws-support",
+    name: "AWS Support",
+    category: "Support",
+    description:
+      "Planes de soporte técnico de AWS con diferentes niveles de servicio.",
+    keyFeatures: [
+      "Basic: documentación y foros (gratis)",
+      "Developer: soporte técnico por email",
+      "Business: soporte 24/7, respuesta en 1 hora",
+      "Enterprise: TAM dedicado, respuesta en 15 min",
+    ],
+    useCases: [
+      "Resolución de problemas técnicos",
+      "Orientación arquitectónica",
+      "Optimización de costos",
+    ],
+    pricing: "Desde gratis hasta % del gasto mensual",
+  },
+  {
+    id: "aws-health",
+    name: "AWS Health Dashboard",
+    shortName: "AWS Health",
+    category: "Support",
+    description:
+      "Dashboard personalizado que muestra el estado de servicios AWS que afectan tu cuenta.",
+    keyFeatures: [
+      "Alertas de eventos que afectan tus recursos",
+      "Estado de servicios en tiempo real",
+      "Notificaciones proactivas",
+      "Integración con EventBridge",
+    ],
+    useCases: [
+      "Monitoreo de disponibilidad",
+      "Respuesta a incidentes",
+      "Planificación de mantenimiento",
+    ],
+    pricing: "Gratuito",
+  },
+  {
+    id: "aws-marketplace",
+    name: "AWS Marketplace",
+    category: "Support",
+    description:
+      "Catálogo digital de software de terceros para ejecutar en AWS.",
+    keyFeatures: [
+      "Miles de productos de software",
+      "Facturación consolidada con AWS",
+      "Despliegue con 1 clic",
+      "AMIs, contenedores, SaaS",
+    ],
+    useCases: [
+      "Adquirir software de terceros",
+      "Probar soluciones rápidamente",
+      "Vender tu propio software",
+    ],
+    pricing: "Varía según el producto",
   },
 ];
 

@@ -185,6 +185,606 @@ export const domain4Questions: Question[] = [
     },
     tags: ["free-tier", "ec2", "capa-gratuita", "nuevos-clientes"],
   },
+  // Nuevas preguntas basadas en Whizlabs y guía oficial CLF-C02
+  {
+    id: "clf-075",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué herramienta de AWS ayuda a los clientes a visualizar, entender y gestionar los costos y el uso de AWS a lo largo del tiempo?",
+    options: [
+      { id: "a", text: "AWS Budgets" },
+      { id: "b", text: "AWS Cost Explorer" },
+      { id: "c", text: "AWS Pricing Calculator" },
+      { id: "d", text: "AWS Organizations" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "AWS Cost Explorer te permite visualizar y gestionar tus costos y uso de AWS a lo largo del tiempo. Proporciona informes predeterminados, la capacidad de crear informes personalizados, y predicciones de costos futuros.",
+      whyOthersWrong: {
+        a: "AWS Budgets permite establecer alertas cuando los costos superan umbrales, pero Cost Explorer es para visualización y análisis.",
+        c: "Pricing Calculator estima costos de nuevos servicios, no analiza costos históricos.",
+        d: "Organizations gestiona múltiples cuentas AWS, no visualiza costos detallados.",
+      },
+    },
+    tags: ["cost-explorer", "costos", "visualizacion", "optimizacion"],
+  },
+  {
+    id: "clf-076",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué herramienta de AWS proporciona alertas personalizadas que notifican cuando problemas de rendimiento o disponibilidad pueden afectar tus recursos AWS?",
+    options: [
+      { id: "a", text: "AWS CloudWatch" },
+      { id: "b", text: "AWS Personal Health Dashboard" },
+      { id: "c", text: "AWS Trusted Advisor" },
+      { id: "d", text: "AWS Config" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "AWS Personal Health Dashboard proporciona alertas y orientación proactiva cuando AWS experimenta eventos que pueden afectar tus recursos. Muestra eventos relevantes personalizados para tu entorno específico.",
+      whyOthersWrong: {
+        a: "CloudWatch monitorea métricas de tus recursos, no eventos de salud del servicio AWS.",
+        c: "Trusted Advisor da recomendaciones de mejores prácticas, no alertas de problemas del servicio AWS.",
+        d: "Config rastrea configuraciones de recursos, no problemas de disponibilidad del servicio AWS.",
+      },
+    },
+    tags: ["personal-health-dashboard", "alertas", "disponibilidad", "eventos"],
+  },
+  {
+    id: "clf-077",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué modelo de precios de AWS ofrece hasta un 72% de descuento a cambio de un compromiso de uso de 1 o 3 años?",
+    options: [
+      { id: "a", text: "On-Demand Instances" },
+      { id: "b", text: "Spot Instances" },
+      { id: "c", text: "Savings Plans" },
+      { id: "d", text: "Dedicated Hosts" },
+    ],
+    correctAnswers: ["c"],
+    explanation: {
+      correct:
+        "Savings Plans ofrecen precios más bajos (hasta 72% de descuento) comparado con On-Demand, a cambio de un compromiso de uso consistente (medido en $/hora) durante 1 o 3 años. Hay Compute Savings Plans y EC2 Instance Savings Plans.",
+      whyOthersWrong: {
+        a: "On-Demand es el precio completo sin descuentos ni compromisos.",
+        b: "Spot Instances ofrecen hasta 90% de descuento pero pueden ser interrumpidas.",
+        d: "Dedicated Hosts son para requisitos de licenciamiento, no ofrecen los mayores descuentos.",
+      },
+    },
+    tags: ["savings-plans", "descuentos", "compromiso", "precios"],
+  },
+  {
+    id: "clf-078",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "multiple",
+    difficulty: "medium",
+    question:
+      "¿Cuáles de los siguientes factores determinan el costo de almacenamiento en Amazon S3? (Seleccione DOS respuestas)",
+    options: [
+      { id: "a", text: "La cantidad de datos almacenados" },
+      { id: "b", text: "El número de buckets creados" },
+      { id: "c", text: "La región donde se almacenan los datos" },
+      { id: "d", text: "El nombre del bucket" },
+      { id: "e", text: "El nombre de los objetos" },
+    ],
+    correctAnswers: ["a", "c"],
+    explanation: {
+      correct:
+        "El costo de S3 depende de: 1) La cantidad de datos almacenados (GB/mes), 2) La región de almacenamiento (los precios varían por región), 3) La clase de almacenamiento, 4) Las solicitudes realizadas, y 5) La transferencia de datos.",
+      whyOthersWrong: {
+        b: "No hay cargo por crear buckets; el cargo es por los datos almacenados en ellos.",
+        d: "El nombre del bucket no afecta el costo.",
+        e: "El nombre de los objetos no afecta el costo; solo su tamaño y clase de almacenamiento.",
+      },
+    },
+    tags: ["s3", "precios", "almacenamiento", "factores-costo"],
+  },
+  {
+    id: "clf-079",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "easy",
+    question:
+      "¿Qué plan de soporte de AWS proporciona acceso a un Technical Account Manager (TAM)?",
+    options: [
+      { id: "a", text: "Basic" },
+      { id: "b", text: "Developer" },
+      { id: "c", text: "Business" },
+      { id: "d", text: "Enterprise" },
+    ],
+    correctAnswers: ["d"],
+    explanation: {
+      correct:
+        "Solo el plan Enterprise Support proporciona acceso a un Technical Account Manager (TAM) dedicado que ayuda a coordinar el acceso a programas y expertos de AWS.",
+      whyOthersWrong: {
+        a: "Basic Support no incluye TAM; solo incluye acceso a documentación y foros.",
+        b: "Developer Support no incluye TAM; incluye soporte técnico por email.",
+        c: "Business Support no incluye TAM; incluye soporte 24/7 pero sin un gestor dedicado.",
+      },
+    },
+    tags: ["enterprise-support", "tam", "soporte", "planes"],
+  },
+  {
+    id: "clf-080",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué herramienta de AWS permite establecer presupuestos personalizados y recibir alertas cuando los costos o el uso superan los umbrales definidos?",
+    options: [
+      { id: "a", text: "AWS Cost Explorer" },
+      { id: "b", text: "AWS Budgets" },
+      { id: "c", text: "AWS Billing Dashboard" },
+      { id: "d", text: "AWS Trusted Advisor" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "AWS Budgets te permite establecer presupuestos personalizados para costos, uso, Savings Plans y Reserved Instances. Puedes configurar alertas por email o SNS cuando se alcanzan los umbrales definidos.",
+      whyOthersWrong: {
+        a: "Cost Explorer visualiza y analiza costos pero no establece presupuestos con alertas.",
+        c: "Billing Dashboard muestra la factura actual pero no permite configurar alertas de presupuesto.",
+        d: "Trusted Advisor da recomendaciones de mejores prácticas, no gestiona presupuestos.",
+      },
+    },
+    tags: ["budgets", "presupuestos", "alertas", "costos"],
+  },
+  {
+    id: "clf-081",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué característica de AWS Organizations permite gestionar la facturación de múltiples cuentas AWS de forma centralizada?",
+    options: [
+      { id: "a", text: "Service Control Policies (SCPs)" },
+      { id: "b", text: "Consolidated Billing" },
+      { id: "c", text: "AWS Single Sign-On" },
+      { id: "d", text: "Resource Access Manager" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "Consolidated Billing (Facturación Consolidada) de AWS Organizations permite recibir una única factura para todas las cuentas de la organización, simplificando el pago y permitiendo obtener descuentos por volumen agregado.",
+      whyOthersWrong: {
+        a: "SCPs controlan permisos de servicios en las cuentas, no la facturación.",
+        c: "Single Sign-On gestiona el acceso de usuarios, no la facturación.",
+        d: "Resource Access Manager comparte recursos entre cuentas, no gestiona facturación.",
+      },
+    },
+    tags: ["organizations", "consolidated-billing", "facturacion", "multi-cuenta"],
+  },
+  {
+    id: "clf-082",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué modelo de precios de EC2 es más adecuado para cargas de trabajo con inicio y fin flexibles que pueden tolerar interrupciones?",
+    options: [
+      { id: "a", text: "On-Demand Instances" },
+      { id: "b", text: "Reserved Instances" },
+      { id: "c", text: "Spot Instances" },
+      { id: "d", text: "Dedicated Instances" },
+    ],
+    correctAnswers: ["c"],
+    explanation: {
+      correct:
+        "Spot Instances permiten usar capacidad EC2 no utilizada con descuentos de hasta 90%. Son ideales para cargas de trabajo tolerantes a interrupciones, como procesamiento por lotes, análisis de datos, y CI/CD.",
+      whyOthersWrong: {
+        a: "On-Demand es para cargas de trabajo que no pueden ser interrumpidas.",
+        b: "Reserved Instances son para cargas de trabajo predecibles y constantes.",
+        d: "Dedicated Instances son para requisitos de aislamiento, no para ahorro con interrupciones.",
+      },
+    },
+    tags: ["spot-instances", "precios", "interrupciones", "ahorro"],
+  },
+  {
+    id: "clf-083",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "easy",
+    question:
+      "¿Cuál de los siguientes servicios de AWS tiene un nivel de uso gratuito permanente (Always Free)?",
+    options: [
+      { id: "a", text: "Amazon EC2" },
+      { id: "b", text: "Amazon RDS" },
+      { id: "c", text: "AWS Lambda (1 millón de solicitudes/mes)" },
+      { id: "d", text: "Amazon Redshift" },
+    ],
+    correctAnswers: ["c"],
+    explanation: {
+      correct:
+        "AWS Lambda tiene un nivel Always Free que incluye 1 millón de solicitudes gratuitas y 400,000 GB-segundos de tiempo de computación por mes, permanentemente, no solo durante los primeros 12 meses.",
+      whyOthersWrong: {
+        a: "EC2 Free Tier (t2.micro/t3.micro) solo es gratuito durante los primeros 12 meses.",
+        b: "RDS Free Tier solo es gratuito durante los primeros 12 meses.",
+        d: "Redshift tiene una prueba gratuita limitada, no un nivel Always Free significativo.",
+      },
+    },
+    tags: ["free-tier", "always-free", "lambda", "gratuito"],
+  },
+  {
+    id: "clf-084",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué característica de AWS permite obtener descuentos en EC2 y otros servicios al agregar el uso de múltiples cuentas bajo una organización?",
+    options: [
+      { id: "a", text: "Reserved Instance Marketplace" },
+      { id: "b", text: "Spot Instance Savings" },
+      { id: "c", text: "Volume Discounts (Descuentos por Volumen)" },
+      { id: "d", text: "On-Demand Capacity Reservations" },
+    ],
+    correctAnswers: ["c"],
+    explanation: {
+      correct:
+        "Con Consolidated Billing de AWS Organizations, el uso de todas las cuentas se agrega para aplicar descuentos por volumen. Cuanto más uso agregado, mayores los descuentos en servicios como S3 y transferencia de datos.",
+      whyOthersWrong: {
+        a: "RI Marketplace es para comprar/vender RIs, no para descuentos por volumen agregado.",
+        b: "Spot Savings son por usar capacidad no utilizada, no por agregar múltiples cuentas.",
+        d: "Capacity Reservations garantizan capacidad pero no proporcionan descuentos por volumen.",
+      },
+    },
+    tags: ["volume-discounts", "organizations", "descuentos", "multi-cuenta"],
+  },
+  {
+    id: "clf-085",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "hard",
+    question:
+      "Una empresa necesita garantizar que su uso de EC2 cumpla con licencias de software que requieren aislamiento físico del servidor. ¿Qué opción de precios de EC2 deben usar?",
+    options: [
+      { id: "a", text: "Reserved Instances" },
+      { id: "b", text: "Spot Instances" },
+      { id: "c", text: "On-Demand Instances" },
+      { id: "d", text: "Dedicated Hosts" },
+    ],
+    correctAnswers: ["d"],
+    explanation: {
+      correct:
+        "Dedicated Hosts proporcionan un servidor físico EC2 completamente dedicado para tu uso. Esto es necesario para requisitos de licenciamiento que requieren visibilidad sobre sockets, cores físicos, o aislamiento de host.",
+      whyOthersWrong: {
+        a: "Reserved Instances reducen costos pero no garantizan aislamiento físico del servidor.",
+        b: "Spot Instances usan capacidad compartida no utilizada.",
+        c: "On-Demand Instances no garantizan aislamiento físico del servidor.",
+      },
+    },
+    tags: ["dedicated-hosts", "licenciamiento", "aislamiento", "cumplimiento"],
+  },
+  {
+    id: "clf-086",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué plan de soporte de AWS incluye acceso a todas las verificaciones de AWS Trusted Advisor?",
+    options: [
+      { id: "a", text: "Basic" },
+      { id: "b", text: "Developer" },
+      { id: "c", text: "Business y Enterprise" },
+      { id: "d", text: "Solo Enterprise" },
+    ],
+    correctAnswers: ["c"],
+    explanation: {
+      correct:
+        "Los planes Business y Enterprise Support incluyen acceso completo a todas las verificaciones de AWS Trusted Advisor. Los planes Basic y Developer solo incluyen las verificaciones básicas de seguridad y límites de servicio.",
+      whyOthersWrong: {
+        a: "Basic solo incluye verificaciones básicas de seguridad y límites de servicio.",
+        b: "Developer solo incluye verificaciones básicas, igual que Basic.",
+        d: "Enterprise incluye todas las verificaciones, pero Business también las incluye.",
+      },
+    },
+    tags: ["trusted-advisor", "business-support", "enterprise", "verificaciones"],
+  },
+  {
+    id: "clf-087",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Cuál es el tiempo de respuesta máximo para casos críticos de sistema caído (business-critical system down) en el plan Enterprise Support?",
+    options: [
+      { id: "a", text: "24 horas" },
+      { id: "b", text: "4 horas" },
+      { id: "c", text: "1 hora" },
+      { id: "d", text: "15 minutos" },
+    ],
+    correctAnswers: ["d"],
+    explanation: {
+      correct:
+        "El plan Enterprise Support proporciona un tiempo de respuesta de menos de 15 minutos para casos críticos de sistema de negocio caído. Este es el nivel más rápido de respuesta disponible.",
+      whyOthersWrong: {
+        a: "24 horas es el tiempo para casos de orientación general.",
+        b: "4 horas es el tiempo para casos de sistema en producción deteriorado en Business Support.",
+        c: "1 hora es el tiempo para casos de sistema en producción caído en Business Support.",
+      },
+    },
+    tags: ["enterprise-support", "sla", "tiempo-respuesta", "soporte"],
+  },
+  {
+    id: "clf-088",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "easy",
+    question:
+      "¿Qué herramienta gratuita de AWS permite estimar el costo mensual de los servicios AWS antes de desplegarlos?",
+    options: [
+      { id: "a", text: "AWS Cost Explorer" },
+      { id: "b", text: "AWS Pricing Calculator" },
+      { id: "c", text: "AWS Budgets" },
+      { id: "d", text: "AWS Total Cost of Ownership (TCO) Calculator" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "AWS Pricing Calculator es una herramienta gratuita basada en web que permite crear estimaciones de costos para servicios AWS antes de comprometerlos. Puedes configurar servicios y ver el costo mensual estimado.",
+      whyOthersWrong: {
+        a: "Cost Explorer analiza costos históricos, no estima servicios nuevos.",
+        c: "Budgets gestiona presupuestos y alertas, no estima costos de nuevos servicios.",
+        d: "TCO Calculator compara costos on-premises vs AWS, no estima servicios específicos.",
+      },
+    },
+    tags: ["pricing-calculator", "estimacion", "costos", "planificacion"],
+  },
+  {
+    id: "clf-113",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué herramienta de AWS proporciona recomendaciones para dimensionar correctamente (right-sizing) los recursos y reducir costos?",
+    options: [
+      { id: "a", text: "AWS Trusted Advisor" },
+      { id: "b", text: "AWS Compute Optimizer" },
+      { id: "c", text: "AWS Cost Explorer" },
+      { id: "d", text: "AWS Budgets" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "AWS Compute Optimizer analiza el uso de tus recursos (EC2, Lambda, EBS) y proporciona recomendaciones específicas de dimensionamiento correcto para optimizar rendimiento y reducir costos.",
+      whyOthersWrong: {
+        a: "Trusted Advisor ofrece algunas recomendaciones generales, pero Compute Optimizer está especializado en dimensionamiento.",
+        c: "Cost Explorer analiza costos pero no proporciona recomendaciones específicas de dimensionamiento de recursos.",
+        d: "Budgets es para establecer alertas de gasto, no para recomendaciones de optimización.",
+      },
+    },
+    tags: ["compute-optimizer", "right-sizing", "optimizacion", "costos"],
+  },
+  {
+    id: "clf-114",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "easy",
+    question:
+      "¿Qué recurso de AWS proporciona predicciones de gastos futuros basándose en el uso histórico?",
+    options: [
+      { id: "a", text: "AWS Budgets" },
+      { id: "b", text: "AWS Cost Explorer" },
+      { id: "c", text: "AWS Pricing Calculator" },
+      { id: "d", text: "AWS Trusted Advisor" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "AWS Cost Explorer incluye funcionalidad de pronóstico (forecasting) que analiza tu historial de uso y gasto para predecir costos futuros hasta 12 meses.",
+      whyOthersWrong: {
+        a: "Budgets te permite establecer alertas de gasto pero no predice costos futuros.",
+        c: "Pricing Calculator estima costos de nuevos servicios, no predice basándose en uso histórico.",
+        d: "Trusted Advisor ofrece recomendaciones de optimización, no predicciones de costos.",
+      },
+    },
+    tags: ["cost-explorer", "forecasting", "prediccion", "costos"],
+  },
+  {
+    id: "clf-115",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué característica de AWS permite asignar metadatos a los recursos para rastrear y organizar los costos por proyecto o departamento?",
+    options: [
+      { id: "a", text: "AWS Organizations" },
+      { id: "b", text: "Etiquetas de asignación de costos (Cost Allocation Tags)" },
+      { id: "c", text: "AWS Resource Groups" },
+      { id: "d", text: "AWS Service Catalog" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "Las etiquetas de asignación de costos permiten categorizar recursos con metadatos personalizados (como proyecto, departamento, entorno) para luego filtrar y analizar costos en Cost Explorer y facturas detalladas.",
+      whyOthersWrong: {
+        a: "Organizations gestiona múltiples cuentas, pero las etiquetas son para asignación de costos específica.",
+        c: "Resource Groups agrupa recursos para gestión, pero no está optimizado para seguimiento de costos.",
+        d: "Service Catalog gestiona catálogos de servicios aprobados, no el seguimiento de costos.",
+      },
+    },
+    tags: ["cost-allocation-tags", "etiquetas", "organizacion", "costos"],
+  },
+  {
+    id: "clf-116",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "easy",
+    question:
+      "¿Qué plan de soporte de AWS es gratuito y está disponible para todos los clientes?",
+    options: [
+      { id: "a", text: "Developer" },
+      { id: "b", text: "Business" },
+      { id: "c", text: "Basic" },
+      { id: "d", text: "Enterprise" },
+    ],
+    correctAnswers: ["c"],
+    explanation: {
+      correct:
+        "El plan Basic Support es gratuito y está incluido para todas las cuentas AWS. Proporciona acceso a documentación, foros de la comunidad, verificaciones básicas de Trusted Advisor y el AWS Personal Health Dashboard.",
+      whyOthersWrong: {
+        a: "Developer tiene un costo mensual mínimo de $29.",
+        b: "Business tiene un costo mensual mínimo de $100.",
+        d: "Enterprise tiene un costo mensual mínimo de $15,000.",
+      },
+    },
+    tags: ["basic-support", "plan-gratuito", "soporte", "aws-support"],
+  },
+  {
+    id: "clf-117",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué beneficio exclusivo proporciona el plan Enterprise Support que no está disponible en otros planes?",
+    options: [
+      { id: "a", text: "Acceso a AWS Trusted Advisor" },
+      { id: "b", text: "Technical Account Manager (TAM) designado" },
+      { id: "c", text: "Soporte técnico 24/7" },
+      { id: "d", text: "Acceso a la API de AWS Support" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "El Technical Account Manager (TAM) designado es exclusivo del plan Enterprise Support. El TAM proporciona orientación proactiva, ayuda con la arquitectura, revisiones de operaciones y acceso directo a ingenieros de AWS.",
+      whyOthersWrong: {
+        a: "Trusted Advisor está disponible en todos los planes (con más verificaciones en Business y Enterprise).",
+        c: "Soporte técnico 24/7 también está disponible en Business Support.",
+        d: "La API de AWS Support está disponible en Business y Enterprise.",
+      },
+    },
+    tags: ["enterprise-support", "tam", "technical-account-manager", "soporte"],
+  },
+  {
+    id: "clf-118",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "Una empresa desea consolidar la facturación de varias cuentas AWS y aplicar descuentos por volumen. ¿Qué servicio debería usar?",
+    options: [
+      { id: "a", text: "AWS Cost Explorer" },
+      { id: "b", text: "AWS Organizations con Facturación Consolidada" },
+      { id: "c", text: "AWS Budgets" },
+      { id: "d", text: "AWS Control Tower" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "AWS Organizations con Facturación Consolidada (Consolidated Billing) permite combinar el uso de todas las cuentas para obtener descuentos por volumen en servicios como S3, EC2 Reserved Instances y Savings Plans.",
+      whyOthersWrong: {
+        a: "Cost Explorer analiza costos pero no consolida facturación ni aplica descuentos.",
+        c: "Budgets establece alertas de gasto pero no consolida cuentas.",
+        d: "Control Tower configura entornos multi-cuenta pero la facturación consolidada es de Organizations.",
+      },
+    },
+    tags: ["organizations", "consolidated-billing", "descuentos-volumen", "multi-cuenta"],
+  },
+  {
+    id: "clf-119",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "easy",
+    question:
+      "¿Cuál de las siguientes opciones de compra de EC2 proporciona los mayores descuentos a cambio de un compromiso de uso de 1 o 3 años?",
+    options: [
+      { id: "a", text: "On-Demand Instances" },
+      { id: "b", text: "Spot Instances" },
+      { id: "c", text: "Reserved Instances" },
+      { id: "d", text: "Dedicated Hosts" },
+    ],
+    correctAnswers: ["c"],
+    explanation: {
+      correct:
+        "Reserved Instances ofrecen descuentos de hasta 72% comparado con On-Demand a cambio de un compromiso de 1 o 3 años. Son ideales para cargas de trabajo predecibles y estables.",
+      whyOthersWrong: {
+        a: "On-Demand no ofrece descuentos, es el precio estándar por hora.",
+        b: "Spot puede tener mayores descuentos (hasta 90%) pero puede ser interrumpido y no requiere compromiso.",
+        d: "Dedicated Hosts son servidores físicos dedicados, generalmente más costosos.",
+      },
+    },
+    tags: ["reserved-instances", "ahorro", "compromiso", "ec2"],
+  },
+  {
+    id: "clf-120",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "medium",
+    question:
+      "¿Qué opción de compra flexible de AWS permite comprometerse a un gasto constante por hora ($/hr) a cambio de descuentos, aplicable a EC2, Lambda y Fargate?",
+    options: [
+      { id: "a", text: "Reserved Instances" },
+      { id: "b", text: "Spot Instances" },
+      { id: "c", text: "Savings Plans" },
+      { id: "d", text: "On-Demand Instances" },
+    ],
+    correctAnswers: ["c"],
+    explanation: {
+      correct:
+        "Savings Plans ofrecen descuentos significativos (hasta 72%) a cambio de comprometerse a un gasto consistente por hora durante 1 o 3 años. Son más flexibles que Reserved Instances y aplican a EC2, Lambda y Fargate.",
+      whyOthersWrong: {
+        a: "Reserved Instances son específicas para un tipo de instancia y región, menos flexibles.",
+        b: "Spot Instances no requieren compromiso pero pueden ser interrumpidas.",
+        d: "On-Demand no tiene descuentos ni compromisos.",
+      },
+    },
+    tags: ["savings-plans", "flexibilidad", "descuentos", "compute"],
+  },
+  {
+    id: "clf-121",
+    certificationId: "aws-clf-c02",
+    domainId: "domain-4",
+    type: "single",
+    difficulty: "easy",
+    question:
+      "¿Cuál es el modelo de precios predeterminado para la mayoría de los servicios AWS que permite pagar solo por lo que se usa sin compromisos a largo plazo?",
+    options: [
+      { id: "a", text: "Pago por capacidad reservada" },
+      { id: "b", text: "Pago por uso (Pay-as-you-go)" },
+      { id: "c", text: "Suscripción anual" },
+      { id: "d", text: "Licencia perpetua" },
+    ],
+    correctAnswers: ["b"],
+    explanation: {
+      correct:
+        "El modelo Pay-as-you-go (pago por uso) es el predeterminado en AWS. Solo pagas por los recursos que consumes, sin costos iniciales ni compromisos a largo plazo, permitiendo flexibilidad total.",
+      whyOthersWrong: {
+        a: "La capacidad reservada es una opción para obtener descuentos, no el modelo predeterminado.",
+        c: "AWS no utiliza suscripciones anuales como modelo base.",
+        d: "AWS no vende licencias perpetuas, utiliza modelos de consumo.",
+      },
+    },
+    tags: ["pay-as-you-go", "pricing-model", "flexibilidad", "sin-compromiso"],
+  },
 ];
 
 export default domain4Questions;

@@ -146,7 +146,7 @@ export default function CertificationsPage() {
                           {cert.description}
                         </p>
                         <div className="flex justify-center gap-4 text-xs text-gray-500 dark:text-gray-400 mb-4">
-                          <span>{cert.questions}+ preguntas</span>
+                          <span>{cert.questions} preguntas</span>
                           <span>•</span>
                           <span>{cert.domains} dominios</span>
                           <span>•</span>

@@ -1,5 +1,6 @@
 "use client";
 
+import { use } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -16,6 +17,7 @@ import {
   Flame,
   BarChart3,
   TrendingUp,
+  FileText,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -24,6 +26,7 @@ import { Progress } from "@/components/ui/progress";
 
 // Import data
 import { awsCloudPractitionerInfo, allDomains, getQuestionStats } from "@/data/certifications/aws-clf-c02";
+import { articleStats } from "@/data/certifications/aws-clf-c02/articles";
 
 // For now, we only support AWS CLF-C02
 const certificationData: Record<string, typeof awsCloudPractitionerInfo> = {
@@ -38,8 +41,8 @@ interface CertificationPageProps {
   params: Promise<{ id: string }>;
 }
 
-export default async function CertificationPage({ params }: CertificationPageProps) {
-  const { id } = await params;
+export default function CertificationPage({ params }: CertificationPageProps) {
+  const { id } = use(params);
   
   const certification = certificationData[id];
   const domains = domainsData[id];
@@ -109,7 +112,7 @@ export default async function CertificationPage({ params }: CertificationPagePro
       {/* Main Actions */}
       <section className="py-12 -mt-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {/* Theory Module */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -126,13 +129,42 @@ export default async function CertificationPage({ params }: CertificationPagePro
                   </CardHeader>
                   <CardContent>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
-                      Aprende todos los conceptos del examen organizados por dominios. Incluye todos los servicios de AWS con explicaciones detalladas.
+                      Aprende todos los conceptos del examen organizados por dominios.
                     </p>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-gray-500 dark:text-gray-400">
-                        {domains.length} dominios • {domains.reduce((acc, d) => acc + d.topics.length, 0)} temas
+                        {domains.length} dominios
                       </span>
                       <ArrowRight className="h-5 w-5 text-indigo-600" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
+
+            {/* Articles */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 }}
+            >
+              <Link href={`/certifications/${id}/articles`}>
+                <Card hover="lift" className="h-full border-2 hover:border-cyan-300 transition-colors">
+                  <CardHeader>
+                    <div className="w-14 h-14 rounded-2xl bg-cyan-50/80 dark:bg-cyan-900/30 flex items-center justify-center mb-4">
+                      <FileText className="h-7 w-7 text-cyan-600" />
+                    </div>
+                    <CardTitle className="text-xl">Artículos</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">
+                      Contenido completo para dominar todos los temas del examen.
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-gray-500 dark:text-gray-400">
+                        {articleStats.total} artículos
+                      </span>
+                      <ArrowRight className="h-5 w-5 text-cyan-600" />
                     </div>
                   </CardContent>
                 </Card>
@@ -151,15 +183,15 @@ export default async function CertificationPage({ params }: CertificationPagePro
                     <div className="w-14 h-14 rounded-2xl bg-purple-50/80 dark:bg-purple-900/30 flex items-center justify-center mb-4">
                       <Target className="h-7 w-7 text-purple-600" />
                     </div>
-                    <CardTitle className="text-xl">Simulador de Examen</CardTitle>
+                    <CardTitle className="text-xl">Simulador</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
-                      Practica con preguntas tipo examen real. Incluye timer, puntuación oficial y explicaciones detalladas de cada respuesta.
+                      Practica con preguntas tipo examen real con timer y explicaciones.
                     </p>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-gray-500 dark:text-gray-400">
-                        {questionStats.total}+ preguntas disponibles
+                        {questionStats.total} preguntas
                       </span>
                       <ArrowRight className="h-5 w-5 text-purple-600" />
                     </div>
@@ -172,7 +204,7 @@ export default async function CertificationPage({ params }: CertificationPagePro
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.25 }}
             >
               <Link href={`/certifications/${id}/progress`}>
                 <Card hover="lift" className="h-full border-2 hover:border-green-300 transition-colors">
@@ -184,11 +216,11 @@ export default async function CertificationPage({ params }: CertificationPagePro
                   </CardHeader>
                   <CardContent>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
-                      Revisa tu avance, estadísticas de exámenes anteriores, logros desbloqueados y mantén tu racha de estudio.
+                      Revisa tu avance, estadísticas y logros desbloqueados.
                     </p>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-gray-500 dark:text-gray-400">
-                        Gráficos • Streaks • Badges
+                        Gráficos • Streaks
                       </span>
                       <ArrowRight className="h-5 w-5 text-green-600" />
                     </div>
@@ -363,7 +395,7 @@ export default async function CertificationPage({ params }: CertificationPagePro
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <p className="text-indigo-100">
-                    Tenemos {questionStats.total}+ preguntas de práctica listas para ti, organizadas por dificultad y dominio.
+                    Tenemos {questionStats.total} preguntas de práctica listas para ti, organizadas por dificultad y dominio.
                   </p>
 
                   <div className="space-y-3">

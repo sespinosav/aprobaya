@@ -11,22 +11,18 @@ import {
   CheckCircle2,
   Clock,
   ArrowLeft,
-  ExternalLink,
   Lightbulb,
-  Server,
+  FileText,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
 
 // Import data
 import {
   awsCloudPractitionerInfo,
   allDomains,
-  services,
-  servicesByCategory,
 } from "@/data/certifications/aws-clf-c02";
+import { getArticlesByDomain } from "@/data/certifications/aws-clf-c02/articles";
 
 export default function TheoryPage() {
   const params = useParams();
@@ -34,7 +30,6 @@ export default function TheoryPage() {
 
   const [expandedDomains, setExpandedDomains] = useState<string[]>(["domain-1"]);
   const [expandedTopics, setExpandedTopics] = useState<string[]>([]);
-  const [activeTab, setActiveTab] = useState<"domains" | "services">("domains");
 
   if (id !== "aws-clf-c02") {
     notFound();
@@ -86,44 +81,45 @@ export default function TheoryPage() {
                 Estudia todos los conceptos necesarios para el examen {certification.code}
               </p>
             </div>
-
-            {/* Tabs */}
-            <div className="flex gap-2 p-1 bg-slate-100/80 dark:bg-gray-800 rounded-xl">
-              <button
-                onClick={() => setActiveTab("domains")}
-                className={`cursor-pointer px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  activeTab === "domains"
-                    ? "bg-white dark:bg-gray-700 text-indigo-600 shadow-sm"
-                    : "text-gray-400 hover:text-white hover:bg-gray-700"
-                }`}
-              >
-                Por Dominios
-              </button>
-              <button
-                onClick={() => setActiveTab("services")}
-                className={`cursor-pointer px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  activeTab === "services"
-                    ? "bg-white dark:bg-gray-700 text-indigo-600 shadow-sm"
-                    : "text-gray-400 hover:text-white hover:bg-gray-700"
-                }`}
-              >
-                Por Servicios
-              </button>
-            </div>
           </div>
+        </motion.div>
+
+        {/* Articles Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+        >
+          <Link href={`/certifications/${id}/articles`}>
+            <Card className="bg-gradient-to-r from-indigo-500 to-purple-600 border-0 hover:from-indigo-600 hover:to-purple-700 transition-all cursor-pointer mb-8">
+              <CardContent className="py-5 flex items-center justify-between">
+                <div className="flex items-center gap-4 text-white">
+                  <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
+                    <FileText className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">64 Artículos de Teoría</h3>
+                    <p className="text-indigo-100 text-sm">
+                      Contenido completo para dominar todos los conceptos del examen
+                    </p>
+                  </div>
+                </div>
+                <ChevronRight className="h-6 w-6 text-white" />
+              </CardContent>
+            </Card>
+          </Link>
         </motion.div>
 
         {/* Content */}
         <AnimatePresence mode="wait">
-          {activeTab === "domains" ? (
-            <motion.div
-              key="domains"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              className="space-y-6"
-            >
-              {/* Domain Progress Overview */}
+          <motion.div
+            key="domains"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            className="space-y-6"
+          >
+            {/* Domain Progress Overview */}
               <Card className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-800 dark:to-gray-800 border-0">
                 <CardContent className="py-6">
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -268,33 +264,25 @@ export default function TheoryPage() {
                                             </ul>
                                           </div>
 
-                                          {/* Related Services */}
-                                          {topic.services && topic.services.length > 0 && (
-                                            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4">
-                                              <div className="flex items-center gap-2 text-blue-700 dark:text-blue-400 font-medium mb-3">
-                                                <Server className="h-4 w-4" />
-                                                Servicios Relacionados
+                                          {/* Articles Link */}
+                                          <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-xl p-4">
+                                            <div className="flex items-center justify-between">
+                                              <div className="flex items-center gap-2 text-indigo-700 dark:text-indigo-400 font-medium">
+                                                <FileText className="h-4 w-4" />
+                                                Artículos de Estudio
                                               </div>
-                                              <div className="flex flex-wrap gap-2">
-                                                {topic.services.map((serviceId) => {
-                                                  const service = services.find(
-                                                    (s) => s.id === serviceId
-                                                  );
-                                                  return (
-                                                    <Badge
-                                                      key={serviceId}
-                                                      variant="info"
-                                                      size="sm"
-                                                      className="cursor-pointer transition-all duration-200 hover:scale-105 hover:bg-blue-600 hover:text-white hover:shadow-lg hover:shadow-blue-500/25"
-                                                      onClick={() => setActiveTab("services")}
-                                                    >
-                                                      {service?.shortName || service?.name || serviceId}
-                                                    </Badge>
-                                                  );
-                                                })}
-                                              </div>
+                                              <Link
+                                                href={`/certifications/${id}/articles?domain=${domain.id}`}
+                                                className="text-sm text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 flex items-center gap-1"
+                                              >
+                                                Ver {getArticlesByDomain(domain.id).length} artículos
+                                                <ChevronRight className="h-4 w-4" />
+                                              </Link>
                                             </div>
-                                          )}
+                                            <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                                              Contenido completo para dominar este tema y aprobar el examen.
+                                            </p>
+                                          </div>
                                         </div>
                                       </motion.div>
                                     )}
@@ -310,70 +298,6 @@ export default function TheoryPage() {
                 </motion.div>
               ))}
             </motion.div>
-          ) : (
-            <motion.div
-              key="services"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              className="space-y-8"
-            >
-              {/* Services by Category */}
-              {Object.entries(servicesByCategory).map(([category, categoryServices]) => (
-                <div key={category}>
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                    <Server className="h-5 w-5 text-indigo-600" />
-                    {category}
-                    <Badge variant="outline" size="sm">
-                      {categoryServices.length} servicios
-                    </Badge>
-                  </h2>
-
-                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {categoryServices.map((service) => (
-                      <Card key={service.id} hover="lift" className="h-full">
-                        <CardHeader className="pb-2">
-                          <CardTitle className="text-base">
-                            {service.shortName || service.name}
-                          </CardTitle>
-                          {service.shortName && (
-                            <p className="text-xs text-gray-500">{service.name}</p>
-                          )}
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-3">
-                            {service.description}
-                          </p>
-
-                          <div className="mt-4 space-y-2">
-                            <div className="text-xs font-medium text-gray-500">
-                              Características principales:
-                            </div>
-                            <ul className="text-xs text-gray-600 dark:text-gray-400 space-y-1">
-                              {service.keyFeatures.slice(0, 3).map((feature, i) => (
-                                <li key={i} className="flex items-start gap-1">
-                                  <span className="text-indigo-500">•</span>
-                                  <span className="line-clamp-1">{feature}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          {service.pricing && (
-                            <div className="mt-3 pt-3 border-t dark:border-gray-700">
-                              <div className="text-xs text-gray-500">
-                                💰 {service.pricing}
-                              </div>
-                            </div>
-                          )}
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-          )}
         </AnimatePresence>
       </div>
     </div>

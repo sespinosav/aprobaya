@@ -293,7 +293,7 @@ export default function SimulatorPage() {
                       <button
                         key={mode.value}
                         onClick={() => setConfig((prev) => ({ ...prev, mode: mode.value as any }))}
-                        className={`p-4 rounded-xl border-2 text-left transition-all ${
+                        className={`p-4 rounded-xl border-2 text-left transition-all cursor-pointer ${
                           config.mode === mode.value
                             ? "border-purple-500 bg-purple-50 dark:bg-purple-900/20"
                             : "border-gray-200 dark:border-gray-700 hover:border-purple-300"
@@ -322,7 +322,7 @@ export default function SimulatorPage() {
                         <button
                           key={domain.id}
                           onClick={() => setConfig((prev) => ({ ...prev, domainId: domain.id }))}
-                          className={`w-full p-4 rounded-xl border-2 text-left transition-all flex items-center justify-between ${
+                          className={`w-full p-4 rounded-xl border-2 text-left transition-all cursor-pointer flex items-center justify-between ${
                             config.domainId === domain.id
                               ? "border-purple-500 bg-purple-50 dark:bg-purple-900/20"
                               : "border-gray-200 dark:border-gray-700 hover:border-purple-300"
@@ -358,7 +358,7 @@ export default function SimulatorPage() {
                       <button
                         key={count}
                         onClick={() => setConfig((prev) => ({ ...prev, questionCount: count }))}
-                        className={`flex-1 py-3 rounded-xl border-2 font-medium transition-all ${
+                        className={`flex-1 py-3 rounded-xl border-2 font-medium transition-all cursor-pointer ${
                           config.questionCount === count
                             ? "border-purple-500 bg-purple-50 text-purple-600 dark:bg-purple-900/20"
                             : "border-gray-200 dark:border-gray-700 hover:border-purple-300"
@@ -387,7 +387,7 @@ export default function SimulatorPage() {
                         <button
                           key={time.value}
                           onClick={() => setConfig((prev) => ({ ...prev, timeLimit: time.value }))}
-                          className={`flex-1 py-3 rounded-xl border-2 font-medium transition-all ${
+                          className={`flex-1 py-3 rounded-xl border-2 font-medium transition-all cursor-pointer ${
                             config.timeLimit === time.value
                               ? "border-purple-500 bg-purple-50 text-purple-600 dark:bg-purple-900/20"
                               : "border-gray-200 dark:border-gray-700 hover:border-purple-300"
@@ -565,10 +565,10 @@ export default function SimulatorPage() {
                 >
                   <Card>
                     <CardHeader>
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <div className="flex gap-2 mb-2">
-                            <Badge variant="outline" size="sm">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                        <div className="space-y-2">
+                          <div className="flex flex-wrap gap-2">
+                            <Badge variant="outline" size="sm" className="text-xs">
                               {allDomains.find(d => d.id === currentQuestion.domainId)?.name || currentQuestion.domainId}
                             </Badge>
                             <Badge
@@ -580,6 +580,7 @@ export default function SimulatorPage() {
                                   : "danger"
                               }
                               size="sm"
+                              className="text-xs"
                             >
                               {currentQuestion.difficulty === "easy"
                                 ? "Fácil"
@@ -587,12 +588,17 @@ export default function SimulatorPage() {
                                 ? "Media"
                                 : "Difícil"}
                             </Badge>
+                            <Badge variant="info" size="sm" className="text-xs sm:hidden">
+                              {currentQuestion.type === "single"
+                                ? "Única"
+                                : `Selecciona ${currentQuestion.correctAnswers.length}`}
+                            </Badge>
                           </div>
-                          <CardTitle className="text-lg">
+                          <CardTitle className="text-base sm:text-lg">
                             Pregunta {examState.currentIndex + 1}
                           </CardTitle>
                         </div>
-                        <Badge variant="info" size="sm">
+                        <Badge variant="info" size="sm" className="hidden sm:flex shrink-0">
                           {currentQuestion.type === "single"
                             ? "Respuesta única"
                             : `Selecciona ${currentQuestion.correctAnswers.length}`}

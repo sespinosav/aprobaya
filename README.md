@@ -22,10 +22,11 @@
 
 - 🎨 **Interfaz moderna y animada** - Diseño atractivo con animaciones fluidas usando Framer Motion
 - 📚 **Módulo de teoría completo** - Todos los servicios y conceptos explicados de forma clara
+- 📝 **64+ Artículos de estudio** - Contenido extenso organizado por dominios para dominar cada tema
 - 🎯 **Simulador de exámenes realista** - Tres modos: Estudio, Examen real y Por dominio
 - 💡 **Explicaciones detalladas** - Entiende por qué cada respuesta incorrecta no es válida
 - 📊 **Seguimiento de progreso** - Estadísticas, rachas de estudio y logros
-- 🌙 **Modo oscuro/claro** - Tema adaptable a tus preferencias
+- 🌙 **Modo oscuro** - Interfaz optimizada para largas sesiones de estudio
 - 💾 **Guardado local** - Tu progreso se guarda automáticamente en el navegador
 - 🌐 **Open Source** - Código abierto bajo licencia CC BY-NC-SA 4.0
 
@@ -106,6 +107,10 @@ aprobaya/
 │           ├── page.tsx          # Detalle de certificación
 │           ├── theory/
 │           │   └── page.tsx      # Módulo de teoría
+│           ├── articles/
+│           │   ├── page.tsx      # Listado de artículos
+│           │   └── [slug]/
+│           │       └── page.tsx  # Artículo individual
 │           ├── simulator/
 │           │   └── page.tsx      # Simulador de exámenes
 │           └── progress/
@@ -118,7 +123,12 @@ aprobaya/
 │           ├── info.ts           # Metadatos de la certificación
 │           ├── domains.ts        # Dominios y temas
 │           ├── services.ts       # Catálogo de servicios AWS
-│           └── questions/        # Preguntas de práctica
+│           ├── questions/        # Preguntas de práctica
+│           └── articles/         # Artículos de teoría (64+)
+│               ├── domain1/      # Conceptos de la nube
+│               ├── domain2/      # Seguridad y cumplimiento
+│               ├── domain3/      # Tecnología y servicios
+│               └── domain4/      # Facturación y precios
 ├── lib/
 │   ├── storage.ts                # Persistencia en localStorage
 │   └── utils.ts                  # Funciones utilitarias
@@ -132,10 +142,15 @@ aprobaya/
 ### 1. Módulo de Teoría
 - Navega por los dominios del examen
 - Estudia cada tema con puntos clave
-- Explora el catálogo de servicios AWS
-- Marca los temas como completados
+- Accede a los artículos relacionados desde cada tema
 
-### 2. Simulador de Exámenes
+### 2. Artículos de Estudio
+- **64+ artículos** organizados por dominio
+- Contenido completo para cada concepto del examen
+- Búsqueda y filtrado por dominio
+- Después de leer los artículos, deberías poder responder cualquier pregunta
+
+### 3. Simulador de Exámenes
 
 | Modo | Descripción |
 |------|-------------|
@@ -143,7 +158,7 @@ aprobaya/
 | 📝 Examen | Simula el examen real con temporizador |
 | 🎯 Por Dominio | Practica un dominio específico |
 
-### 3. Seguimiento de Progreso
+### 4. Seguimiento de Progreso
 - Visualiza tu historial de exámenes
 - Analiza tu rendimiento por dominio
 - Mantén tu racha de estudio
@@ -152,6 +167,12 @@ aprobaya/
 ## 🤝 Contribuir
 
 ¡Las contribuciones son bienvenidas! Hay varias formas de ayudar:
+
+### Añadir artículos
+1. Ve a `data/certifications/aws-clf-c02/articles/domain{1-4}/`
+2. Crea un nuevo archivo `.ts` siguiendo el formato existente
+3. Incluye introducción, secciones detalladas y puntos clave
+4. Exporta el artículo en el `index.ts` del dominio correspondiente
 
 ### Añadir preguntas
 1. Ve a `data/certifications/aws-clf-c02/questions/`
@@ -169,10 +190,35 @@ aprobaya/
 ### Pasos para contribuir
 
 1. Fork el proyecto
-2. Crea tu rama (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add: nueva característica'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+2. Crea tu rama (`git checkout -b feature/descripcion-corta`)
+3. Haz tus cambios siguiendo las convenciones
+4. Commit usando **Conventional Commits** (ver abajo)
+5. Push a la rama (`git push origin feature/descripcion-corta`)
+6. Abre un Pull Request
+
+### 📋 Conventional Commits
+
+Usamos [Conventional Commits](https://www.conventionalcommits.org/) para mantener un historial claro:
+
+| Tipo | Descripción | Ejemplo |
+|------|-------------|--------|
+| `feat` | Nueva funcionalidad | `feat: add search to articles page` |
+| `fix` | Corrección de bug | `fix: domain filter not working` |
+| `docs` | Documentación | `docs: update README with articles info` |
+| `style` | Estilos (sin cambio de lógica) | `style: improve card spacing` |
+| `refactor` | Refactorización | `refactor: simplify article normalization` |
+| `content` | Contenido educativo | `content: add 5 new articles for domain 2` |
+| `chore` | Tareas de mantenimiento | `chore: update dependencies` |
+
+**Formato:** `tipo(alcance opcional): descripción breve`
+
+```bash
+# Ejemplos
+git commit -m "feat: add article search functionality"
+git commit -m "content(domain-1): add cloud computing benefits article"
+git commit -m "fix(simulator): correct timer countdown bug"
+git commit -m "docs: add contribution guidelines"
+```
 
 ## 📝 Formato de Preguntas
 
@@ -208,10 +254,10 @@ aprobaya/
 - [x] Módulo de teoría
 - [x] Simulador de exámenes
 - [x] Dashboard de progreso
-- [ ] Más preguntas de práctica (65+)
-- [ ] Modo oscuro
+- [x] Más preguntas de práctica (65+)
+- [x] Artículos de estudio (64+ artículos)
 - [ ] PWA / Offline support
-- [ ] Flashcards
+- [ ] Flashcards interactivas
 - [ ] Azure AZ-900
 - [ ] GCP Cloud Digital Leader
 - [ ] API para sincronización en la nube
@@ -232,7 +278,6 @@ Ver `LICENSE` para más información.
 
 - [AWS](https://aws.amazon.com/) por la documentación oficial
 - [Next.js](https://nextjs.org/) por el increíble framework
-- [Vercel](https://vercel.com/) por el hosting
 - Todos los contribuidores que hacen este proyecto posible
 
 ---

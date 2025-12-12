@@ -125,7 +125,7 @@ export default function SimulatorPage() {
                     </CardHeader>
                     <CardContent>
                       <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                        {sim.questions}+ preguntas de práctica
+                        {sim.questions} preguntas de práctica
                       </p>
                       <div className="flex flex-wrap gap-2 mb-4">
                         {sim.modes.map((mode) => (

@@ -218,6 +218,60 @@ export interface Achievement {
 }
 
 // ============================================
+// ARTICLE TYPES
+// ============================================
+
+export interface ArticleSection {
+  title: string;
+  content: string;
+  code?: string;
+  note?: string;
+}
+
+export interface ArticleContentStructured {
+  introduction: string;
+  sections: ArticleSection[];
+}
+
+export type ArticleContentType = ArticleSection[] | ArticleContentStructured;
+
+export interface Article {
+  id: string;
+  slug: string;
+  title: string;
+  shortDescription: string;
+  domainId: string;
+  certificationId?: string;
+  content: ArticleContentType;
+  keyTakeaways?: string[];
+  keyPoints?: string[];
+  tags: string[];
+  relatedQuestions?: string[];
+  relatedServices?: string[];
+  relatedArticles?: string[];
+  readingTime: number; // in minutes
+  lastUpdated: string;
+}
+
+export function getArticleSections(article: Article): ArticleSection[] {
+  if (Array.isArray(article.content)) {
+    return article.content;
+  }
+  return article.content.sections;
+}
+
+export function getArticleIntroduction(article: Article): string {
+  if (Array.isArray(article.content)) {
+    return "";
+  }
+  return article.content.introduction;
+}
+
+export function getArticleKeyPoints(article: Article): string[] {
+  return article.keyTakeaways || article.keyPoints || [];
+}
+
+// ============================================
 // UI TYPES
 // ============================================
 
