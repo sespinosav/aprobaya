@@ -31,7 +31,7 @@ const Progress = React.forwardRef<
   >
     <ProgressPrimitive.Indicator
       className={cn(
-        "h-full w-full flex-1 rounded-full transition-all duration-500 ease-out",
+        "h-full w-full flex-1 rounded-full transition-all duration-200 ease-out",
         variantStyles[variant],
         indicatorClassName
       )}

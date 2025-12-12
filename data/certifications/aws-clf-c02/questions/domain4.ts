@@ -708,7 +708,7 @@ export const domain4Questions: Question[] = [
     tags: ["organizations", "consolidated-billing", "descuentos-volumen", "multi-cuenta"],
   },
   {
-    id: "clf-119",
+    id: "clf-142",
     certificationId: "aws-clf-c02",
     domainId: "domain-4",
     type: "single",
@@ -734,7 +734,7 @@ export const domain4Questions: Question[] = [
     tags: ["reserved-instances", "ahorro", "compromiso", "ec2"],
   },
   {
-    id: "clf-120",
+    id: "clf-143",
     certificationId: "aws-clf-c02",
     domainId: "domain-4",
     type: "single",
@@ -760,7 +760,7 @@ export const domain4Questions: Question[] = [
     tags: ["savings-plans", "flexibilidad", "descuentos", "compute"],
   },
   {
-    id: "clf-121",
+    id: "clf-144",
     certificationId: "aws-clf-c02",
     domainId: "domain-4",
     type: "single",

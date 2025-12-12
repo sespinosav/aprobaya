@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
 import {
@@ -111,14 +111,12 @@ export default function TheoryPage() {
         </motion.div>
 
         {/* Content */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key="domains"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 20 }}
-            className="space-y-6"
-          >
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2 }}
+          className="space-y-6"
+        >
             {/* Domain Progress Overview */}
               <Card className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-800 dark:to-gray-800 border-0">
                 <CardContent className="py-6">
@@ -181,16 +179,13 @@ export default function TheoryPage() {
                     </button>
 
                     {/* Domain Content */}
-                    <AnimatePresence>
-                      {expandedDomains.includes(domain.id) && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.2 }}
-                          className="overflow-hidden"
-                        >
-                          <div className="px-6 pb-6 border-t dark:border-gray-700">
+                    {expandedDomains.includes(domain.id) && (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.15 }}
+                      >
+                        <div className="px-6 pb-6 border-t dark:border-gray-700">
                             <p className="mt-4 text-gray-600 dark:text-gray-400 mb-6">
                               {domain.description}
                             </p>
@@ -231,16 +226,13 @@ export default function TheoryPage() {
                                   </button>
 
                                   {/* Topic Content */}
-                                  <AnimatePresence>
-                                    {expandedTopics.includes(topic.id) && (
-                                      <motion.div
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: "auto", opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.2 }}
-                                        className="overflow-hidden"
-                                      >
-                                        <div className="p-4 pt-0 space-y-4">
+                                  {expandedTopics.includes(topic.id) && (
+                                    <motion.div
+                                      initial={{ opacity: 0 }}
+                                      animate={{ opacity: 1 }}
+                                      transition={{ duration: 0.15 }}
+                                    >
+                                      <div className="p-4 pt-0 space-y-4">
                                           <p className="text-sm text-gray-600 dark:text-gray-400">
                                             {topic.description}
                                           </p>
@@ -286,19 +278,16 @@ export default function TheoryPage() {
                                         </div>
                                       </motion.div>
                                     )}
-                                  </AnimatePresence>
                                 </div>
                               ))}
                             </div>
                           </div>
                         </motion.div>
                       )}
-                    </AnimatePresence>
                   </Card>
                 </motion.div>
               ))}
-            </motion.div>
-        </AnimatePresence>
+        </motion.div>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import {
@@ -556,13 +556,12 @@ export default function SimulatorPage() {
 
             {/* Question Content */}
             <div className="order-1 lg:order-2 lg:col-span-3">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentQuestion.id}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                >
+              <motion.div
+                key={currentQuestion.id}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.15 }}
+              >
                   <Card>
                     <CardHeader>
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
@@ -746,7 +745,6 @@ export default function SimulatorPage() {
                     </CardContent>
                   </Card>
                 </motion.div>
-              </AnimatePresence>
             </div>
           </div>
         </div>
@@ -880,6 +878,25 @@ export default function SimulatorPage() {
                     const question = examState.questions.find((q) => q.id === result.questionId);
                     if (!question) return null;
 
+                    const getUserAnswerText = () => {
+                      if (!result.userAnswers.length) return "Sin respuesta";
+                      return result.userAnswers
+                        .map((answerId) => {
+                          const option = question.options.find((o) => o.id === answerId);
+                          return option ? `${answerId.toUpperCase()}) ${option.text}` : answerId.toUpperCase();
+                        })
+                        .join(" | ");
+                    };
+
+                    const getCorrectAnswerText = () => {
+                      return result.correctAnswers
+                        .map((answerId) => {
+                          const option = question.options.find((o) => o.id === answerId);
+                          return option ? `${answerId.toUpperCase()}) ${option.text}` : answerId.toUpperCase();
+                        })
+                        .join(" | ");
+                    };
+
                     return (
                       <div
                         key={result.questionId}
@@ -890,27 +907,52 @@ export default function SimulatorPage() {
                         }`}
                       >
                         <div className="flex items-start gap-3">
-                          <div className="flex-shrink-0">
+                          <div className="flex-shrink-0 mt-1">
                             {result.isCorrect ? (
                               <CheckCircle2 className="h-5 w-5 text-green-600" />
                             ) : (
                               <XCircle className="h-5 w-5 text-red-600" />
                             )}
                           </div>
-                          <div className="flex-grow">
-                            <div className="font-medium text-gray-900 dark:text-white mb-2">
+                          <div className="flex-grow space-y-3">
+                            <div className="font-medium text-gray-900 dark:text-white">
                               {i + 1}. {question.question}
                             </div>
-                            <div className="text-sm space-y-1">
-                              <div className="text-gray-600 dark:text-gray-400">
-                                Tu respuesta:{" "}
-                                <span className={result.isCorrect ? "text-green-600" : "text-red-600"}>
-                                  {result.userAnswers.join(", ").toUpperCase() || "Sin respuesta"}
+                            
+                            <div className="text-sm space-y-2">
+                              <div className={`p-2 rounded-lg ${result.isCorrect ? "bg-green-100 dark:bg-green-900/30" : "bg-red-100 dark:bg-red-900/30"}`}>
+                                <span className="font-medium text-gray-700 dark:text-gray-300">Tu respuesta: </span>
+                                <span className={result.isCorrect ? "text-green-700 dark:text-green-400" : "text-red-700 dark:text-red-400"}>
+                                  {getUserAnswerText()}
                                 </span>
                               </div>
+                              
                               {!result.isCorrect && (
-                                <div className="text-green-600">
-                                  Respuesta correcta: {result.correctAnswers.join(", ").toUpperCase()}
+                                <div className="p-2 rounded-lg bg-green-100 dark:bg-green-900/30">
+                                  <span className="font-medium text-gray-700 dark:text-gray-300">Respuesta correcta: </span>
+                                  <span className="text-green-700 dark:text-green-400">
+                                    {getCorrectAnswerText()}
+                                  </span>
+                                </div>
+                              )}
+                            </div>
+
+                            {/* Explicación */}
+                            <div className="text-sm bg-white/50 dark:bg-gray-800/50 rounded-lg p-3 space-y-2">
+                              <div>
+                                <span className="font-medium text-green-700 dark:text-green-400">¿Por qué es correcta? </span>
+                                <span className="text-gray-600 dark:text-gray-400">{question.explanation.correct}</span>
+                              </div>
+                              {!result.isCorrect && result.userAnswers.length > 0 && (
+                                <div>
+                                  <span className="font-medium text-amber-700 dark:text-amber-400">Tu error: </span>
+                                  <span className="text-gray-600 dark:text-gray-400">
+                                    {result.userAnswers
+                                      .filter((a) => !result.correctAnswers.includes(a))
+                                      .map((a) => question.explanation.whyOthersWrong[a])
+                                      .filter(Boolean)
+                                      .join(" ")}
+                                  </span>
                                 </div>
                               )}
                             </div>
