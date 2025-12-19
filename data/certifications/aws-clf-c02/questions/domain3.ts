@@ -2116,7 +2116,7 @@ export const domain3Questions: Question[] = [
     id: "clf-163",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
-    type: "single",
+    type: "multiple",
     difficulty: "medium",
     question:
       "¿Cuáles acciones son ejemplos del esfuerzo de una empresa por dimensionar correctamente (right-size) sus recursos de AWS para controlar los costos de la nube? (Seleccione DOS)",
@@ -2195,7 +2195,7 @@ export const domain3Questions: Question[] = [
     id: "clf-166",
     certificationId: "aws-clf-c02",
     domainId: "domain-3",
-    type: "single",
+    type: "multiple",
     difficulty: "medium",
     question:
       "¿Cuáles son capacidades de la perspectiva de plataforma del Marco de Adopción de la Nube de AWS (AWS CAF)? (Seleccione DOS)",
