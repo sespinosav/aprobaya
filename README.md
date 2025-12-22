@@ -4,7 +4,7 @@
 
 <img src="public/logo.png" alt="AprobaYa Logo" width="400">
 
-**Plataforma de preparación de exámenes de certificación**
+**Plataforma de preparación de exámenes de certificación (Cloud)**
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
