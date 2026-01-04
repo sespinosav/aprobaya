@@ -47,7 +47,7 @@ Los productores envían mensajes a una cola, los consumidores los procesan cuand
 
 **Características:**
 - Mensajes se almacenan hasta ser procesados
-- Múltiples consumidores pueden leer de la cola
+- Múltiples consumidores pueden leer de la cola, pero solo uno procesa el mensaje
 - Si un consumidor falla, el mensaje vuelve a la cola
 - Escala automáticamente
 
@@ -249,3 +249,4 @@ Cada servicio procesa independientemente. Si el servicio de envío está lento, 
   readingTime: 12,
   lastUpdated: "2025-12-11",
 };
+
