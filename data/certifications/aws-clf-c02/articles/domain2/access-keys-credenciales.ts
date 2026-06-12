@@ -144,7 +144,7 @@ STS genera credenciales temporales para:
 
 \`\`\`json
 {
-  "AccessKeyId": "ASIA...",
+  "AccessKeyId": "AKIA...",
   "SecretAccessKey": "...",
   "SessionToken": "...",
   "Expiration": "2024-01-15T18:00:00Z"
